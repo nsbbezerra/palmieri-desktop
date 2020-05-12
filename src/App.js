@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { MemoryRouter as Router } from "react-router-dom";
+import Menu from "./components/menu";
+import logo from "./assets/logo.svg";
+import icone from "./assets/icone.svg";
+
+import RoutesApp from "./routes/index";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container-app">
+        <div className="menu-app">
+          <div className="container-logo">
+            <img src={icone} className="icone-menu-app" alt="logo" />
+            <img src={logo} className="logo-menu-app" alt="logo" />
+          </div>
+          <Menu />
+        </div>
+        <div className="content-app">
+          <RoutesApp />
+        </div>
+      </div>
+    </Router>
   );
 }
 
