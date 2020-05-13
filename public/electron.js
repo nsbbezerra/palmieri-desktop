@@ -28,6 +28,7 @@ function createWindow() {
   mainWindow.setMenuBarVisibility(false);
   mainWindow.setResizable(true);
   mainWindow.removeMenu();
+  mainWindow.webContents.openDevTools();
   mainWindow.on("closed", () => (mainWindow = null));
 }
 

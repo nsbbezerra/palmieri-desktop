@@ -19,13 +19,13 @@ export default function Menu() {
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <Link to="/" className="menu-link">
+          <Link to="/saveProducts" className="menu-link">
             <FaTshirt style={{ marginRight: 15 }} />
             PRODUTOS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/" className="menu-link">
+          <Link to="/savePages" className="menu-link">
             <FaPager style={{ marginRight: 15 }} />
             PÁGINAS
           </Link>

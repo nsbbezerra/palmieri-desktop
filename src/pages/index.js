@@ -8,12 +8,13 @@ import {
   FaPager,
   FaRocketchat,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
     <>
       <div className="header">
-        <FaHome style={{ marginRight: 20 }} />
+        <FaHome style={{ marginRight: 20, fontSize: 20 }} />
         INÍCIO
       </div>
       <div className="content-page">
@@ -47,14 +48,14 @@ export default function Index() {
         </div>
 
         <div className="grid-five">
-          <div className="action-button">
+          <Link to="/saveProducts" className="action-button">
             <FaTshirt className="action-button-icon" />
             CADASTRO DE PRODUTOS
-          </div>
-          <div className="action-button">
+          </Link>
+          <Link to="/savePages" className="action-button">
             <FaPager className="action-button-icon" />
             CADASTRO DE PÁGINAS
-          </div>
+          </Link>
           <div className="action-button">
             <FaIdCardAlt className="action-button-icon" />
             CADASTRO DE FUNCIONÁRIOS
