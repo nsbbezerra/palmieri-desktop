@@ -31,19 +31,19 @@ export default function Menu() {
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/" className="menu-link">
+          <Link to="/savePartners" className="menu-link">
             <FaIdCardAlt style={{ marginRight: 15 }} />
             FUNCIONÁRIOS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/" className="menu-link">
+          <Link to="/saveCatalog" className="menu-link">
             <FaImages style={{ marginRight: 15 }} />
-            PORTIFÓLIO
+            CATÁLOGOS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/" className="menu-link">
+          <Link to="/saveDepoiment" className="menu-link">
             <FaRocketchat style={{ marginRight: 15 }} />
             DEPOIMENTOS
           </Link>
@@ -64,12 +64,6 @@ export default function Menu() {
           <Link to="/" className="menu-link">
             <FaIdCardAlt style={{ marginRight: 15 }} />
             FUNCIONÁRIOS
-          </Link>
-        </li>
-        <li className="menu-item">
-          <Link to="/" className="menu-link">
-            <FaImages style={{ marginRight: 15 }} />
-            PORTIFÓLIO
           </Link>
         </li>
         <li className="menu-item">

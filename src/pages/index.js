@@ -56,18 +56,18 @@ export default function Index() {
             <FaPager className="action-button-icon" />
             CADASTRO DE PÁGINAS
           </Link>
-          <div className="action-button">
+          <Link to="/savePartners" className="action-button">
             <FaIdCardAlt className="action-button-icon" />
             CADASTRO DE FUNCIONÁRIOS
-          </div>
-          <div className="action-button">
+          </Link>
+          <Link to="/saveCatalog" className="action-button">
             <FaImages className="action-button-icon" />
-            CADASTRO DE PORTIFÓLIOS
-          </div>
-          <div className="action-button">
+            CADASTRO DE CATÁLOGOS
+          </Link>
+          <Link to="/saveDepoiment" className="action-button">
             <FaRocketchat className="action-button-icon" />
             CADASTRO DE DEPOIMENTOS
-          </div>
+          </Link>
         </div>
 
         <div className="grid-five">
@@ -78,10 +78,6 @@ export default function Index() {
           <div className="action-button">
             <FaIdCardAlt className="action-button-icon" />
             LISTAGEM DE FUNCIONÁRIOS
-          </div>
-          <div className="action-button">
-            <FaImages className="action-button-icon" />
-            LISTAGEM DE PORTIFÓLIOS
           </div>
           <div className="action-button">
             <FaRocketchat className="action-button-icon" />

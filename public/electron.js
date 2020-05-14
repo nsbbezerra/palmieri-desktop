@@ -11,8 +11,8 @@ Menu.setApplicationMenu(false);
 function createWindow() {
   const iconPath = path.resolve(__dirname, "icone512.png");
   mainWindow = new BrowserWindow({
-    width: 1100,
-    height: 650,
+    width: 1300,
+    height: 700,
     webPreferences: {
       nativeWindowOpen: true,
       nodeIntegration: true,
@@ -28,7 +28,6 @@ function createWindow() {
   mainWindow.setMenuBarVisibility(false);
   mainWindow.setResizable(true);
   mainWindow.removeMenu();
-  mainWindow.webContents.openDevTools();
   mainWindow.on("closed", () => (mainWindow = null));
 }
 
