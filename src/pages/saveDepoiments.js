@@ -4,9 +4,9 @@ import {
   FaSave,
   FaRocketchat,
   FaImages,
-  FaImage,
   FaTimes,
   FaInfoCircle,
+  FaVideo,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -16,6 +16,7 @@ import logo from "../assets/logo.svg";
 export default function SaveDepoiments() {
   const [titleDepoimet, setTitleDepoiment] = useState("Título");
   const [imageDepoiment, setImageDepoiment] = useState(null);
+  const [urlVide, setUrlVideo] = useState("");
 
   const previewImage = useMemo(() => {
     return imageDepoiment ? URL.createObjectURL(imageDepoiment) : null;
@@ -71,7 +72,7 @@ export default function SaveDepoiments() {
         <div className="container-info">
           <span className="title-container-info">
             <FaInfoCircle style={{ marginRight: 15 }} />
-            INFORMAÇÕES DO PRODUTO
+            INFORMAÇÕES DO DEPOIMENTO
           </span>
           <div className="grid-products-info">
             {imageDepoiment ? (
@@ -125,11 +126,86 @@ export default function SaveDepoiments() {
               </span>
               <span className="btn-text">Salvar Informações</span>
             </button>
-            <button onClick={() => {}} type="button" className="btn-primary">
+          </div>
+        </div>
+
+        <div className="title-page-two">
+          <div className="header-left">
+            <FaVideo style={{ marginRight: 20 }} />
+            SALVAR VÍDEOS
+          </div>
+        </div>
+
+        <div className="video-content">
+          <div className="video-container">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/xzx5-_4Vsx8"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div className="video-container">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/xzx5-_4Vsx8"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div className="video-container">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/xzx5-_4Vsx8"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div className="video-container">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/xzx5-_4Vsx8"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div className="container-info">
+          <span className="title-container-info">
+            <FaInfoCircle style={{ marginRight: 15 }} />
+            LINK DO VÍDEO
+          </span>
+          <div style={{ marginTop: "10px" }}>
+            <span className="label">Url do Vídeo do Youtube</span>
+            <input
+              type="text"
+              className="input-text"
+              onChange={(e) => setUrlVideo(e.target.value)}
+              value={urlVide}
+              maxLength={60}
+            />
+            <button
+              onClick={() => {}}
+              type="button"
+              className="btn-primary"
+              style={{ marginTop: 10 }}
+            >
               <span className="btn-label">
-                <FaImage />
+                <FaSave />
               </span>
-              <span className="btn-text">Salvar Imagem do Produto</span>
+              <span className="btn-text">Salvar Catálogo</span>
             </button>
           </div>
         </div>

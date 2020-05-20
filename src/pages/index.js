@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
-    <>
+    <div style={{ overflow: "hidden" }}>
       <div className="header">
         <FaHome style={{ marginRight: 20, fontSize: 20 }} />
         INÍCIO
@@ -71,20 +71,20 @@ export default function Index() {
         </div>
 
         <div className="grid-five">
-          <div className="action-button">
+          <Link to="/listProducts" className="action-button">
             <FaTshirt className="action-button-icon" />
             LISTAGEM DE PRODUTOS
-          </div>
-          <div className="action-button">
+          </Link>
+          <Link to="/listPartners" className="action-button">
             <FaIdCardAlt className="action-button-icon" />
             LISTAGEM DE FUNCIONÁRIOS
-          </div>
-          <div className="action-button">
+          </Link>
+          <Link to="/listDepoiments" className="action-button">
             <FaRocketchat className="action-button-icon" />
             LISTAGEM DE DEPOIMENTOS
-          </div>
+          </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }

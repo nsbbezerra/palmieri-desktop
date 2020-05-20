@@ -55,19 +55,19 @@ export default function Menu() {
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <Link to="/" className="menu-link">
+          <Link to="/listProducts" className="menu-link">
             <FaTshirt style={{ marginRight: 15 }} />
             PRODUTOS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/" className="menu-link">
+          <Link to="/listPartners" className="menu-link">
             <FaIdCardAlt style={{ marginRight: 15 }} />
             FUNCIONÁRIOS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/" className="menu-link">
+          <Link to="/listDepoiments" className="menu-link">
             <FaRocketchat style={{ marginRight: 15 }} />
             DEPOIMENTOS
           </Link>

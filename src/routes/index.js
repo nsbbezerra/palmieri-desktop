@@ -7,6 +7,9 @@ import SavePages from "../pages/savePages";
 import SavePartners from "../pages/savePartners";
 import SaveCatalog from "../pages/saveCatalog";
 import SaveDepoiment from "../pages/saveDepoiments";
+import ListProducts from "../pages/listProducts";
+import ListPartners from "../pages/listPartners";
+import ListDepoiments from "../pages/listDepoiments";
 
 export default function RoutesApp() {
   return (
@@ -28,6 +31,15 @@ export default function RoutesApp() {
       </Route>
       <Route path="/saveDepoiment">
         <SaveDepoiment />
+      </Route>
+      <Route path="/listProducts">
+        <ListProducts />
+      </Route>
+      <Route path="/listPartners">
+        <ListPartners />
+      </Route>
+      <Route path="/listDepoiments">
+        <ListDepoiments />
       </Route>
     </Switch>
   );

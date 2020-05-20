@@ -60,8 +60,8 @@ export default function SaveCatalog() {
                 />
               </div>
             ) : (
-              <img className="card-image" alt="Imagem" src={previewImage} />
-            )}
+                <img className="card-image" alt="Imagem" src={previewImage} />
+              )}
           </div>
           <div className="card-product" style={{ marginBottom: "20px" }}>
             {!imageCatalog ? (
@@ -71,8 +71,8 @@ export default function SaveCatalog() {
                 />
               </div>
             ) : (
-              <img className="card-image" alt="Imagem" src={previewImage} />
-            )}
+                <img className="card-image" alt="Imagem" src={previewImage} />
+              )}
           </div>
           <div className="card-product" style={{ marginBottom: "20px" }}>
             {!imageCatalog ? (
@@ -82,8 +82,8 @@ export default function SaveCatalog() {
                 />
               </div>
             ) : (
-              <img className="card-image" alt="Imagem" src={previewImage} />
-            )}
+                <img className="card-image" alt="Imagem" src={previewImage} />
+              )}
           </div>
           <div className="card-product" style={{ marginBottom: "20px" }}>
             {!imageCatalog ? (
@@ -93,8 +93,8 @@ export default function SaveCatalog() {
                 />
               </div>
             ) : (
-              <img className="card-image" alt="Imagem" src={previewImage} />
-            )}
+                <img className="card-image" alt="Imagem" src={previewImage} />
+              )}
           </div>
           <div className="card-product" style={{ marginBottom: "20px" }}>
             {!imageCatalog ? (
@@ -104,8 +104,8 @@ export default function SaveCatalog() {
                 />
               </div>
             ) : (
-              <img className="card-image" alt="Imagem" src={previewImage} />
-            )}
+                <img className="card-image" alt="Imagem" src={previewImage} />
+              )}
           </div>
           <div className="card-product" style={{ marginBottom: "20px" }}>
             {!imageCatalog ? (
@@ -115,8 +115,8 @@ export default function SaveCatalog() {
                 />
               </div>
             ) : (
-              <img className="card-image" alt="Imagem" src={previewImage} />
-            )}
+                <img className="card-image" alt="Imagem" src={previewImage} />
+              )}
           </div>
           <div className="card-product" style={{ marginBottom: "20px" }}>
             {!imageCatalog ? (
@@ -126,14 +126,14 @@ export default function SaveCatalog() {
                 />
               </div>
             ) : (
-              <img className="card-image" alt="Imagem" src={previewImage} />
-            )}
+                <img className="card-image" alt="Imagem" src={previewImage} />
+              )}
           </div>
         </div>
         <div className="container-info">
           <span className="title-container-info">
             <FaInfoCircle style={{ marginRight: 15 }} />
-            INFORMAÇÕES DO PRODUTO
+            INFORMAÇÕES DO CATÁLOGO
           </span>
           <div style={{ marginTop: "10px" }}>
             {imageCatalog ? (
@@ -146,17 +146,17 @@ export default function SaveCatalog() {
                 <p>{imageCatalog.name}</p>
               </button>
             ) : (
-              <label id="photoFile">
-                <input
-                  type="file"
-                  onChange={(event) => setImageCatalog(event.target.files[0])}
-                />
-                <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
+                <label id="photoFile">
+                  <input
+                    type="file"
+                    onChange={(event) => setImageCatalog(event.target.files[0])}
+                  />
+                  <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
                 Clique aqui para adicionar uma foto do catálogo
-              </label>
-            )}
+                </label>
+              )}
             <button
-              onClick={() => {}}
+              onClick={() => { }}
               type="button"
               className="btn-primary"
               style={{ marginTop: 10 }}

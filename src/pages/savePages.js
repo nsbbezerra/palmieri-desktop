@@ -124,7 +124,7 @@ export default function SavePages() {
               Cards Personalizados
             </label>
             <button
-              onClick={() => {}}
+              onClick={() => { }}
               type="button"
               className="btn-white btn-small"
             >
@@ -157,12 +157,12 @@ export default function SavePages() {
                     />
                   </div>
                 ) : (
-                  <img
-                    className="card-product-img"
-                    alt="Imagem"
-                    src={previewPhotoCards}
-                  />
-                )}
+                    <img
+                      className="card-product-img"
+                      alt="Imagem"
+                      src={previewPhotoCards}
+                    />
+                  )}
                 <div className="card-content-two">{descriptionCard}</div>
               </div>
             </div>
@@ -182,15 +182,15 @@ export default function SavePages() {
                     <p>{photoCards.name}</p>
                   </button>
                 ) : (
-                  <label id="photoFile">
-                    <input
-                      type="file"
-                      onChange={(event) => setPhotoCards(event.target.files[0])}
-                    />
-                    <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
+                    <label id="photoFile">
+                      <input
+                        type="file"
+                        onChange={(event) => setPhotoCards(event.target.files[0])}
+                      />
+                      <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
                     Clique aqui para adicionar a foto do produto
-                  </label>
-                )}
+                    </label>
+                  )}
                 <div>
                   <div className="grid-cards-row">
                     <div>
@@ -266,7 +266,7 @@ export default function SavePages() {
               <hr className="divider" />
               <div className="container-buttons">
                 <button
-                  onClick={() => {}}
+                  onClick={() => { }}
                   type="button"
                   className="btn-primary"
                 >
@@ -279,116 +279,116 @@ export default function SavePages() {
             </div>
           </>
         ) : (
-          <>
-            <span className="title-container-info">
-              EXEMPLOS DAS IMAGENS COM DESCRIÇÃO
-            </span>
-            <div className="cards-row">
-              <div className="card-product-two">
-                {!photoCards ? (
-                  <div className="card-image-icon">
-                    <FaImages
-                      style={{ fontSize: 150, color: "rgb(237, 186, 0)" }}
-                    />
-                  </div>
-                ) : (
-                  <img
-                    className="card-product"
-                    alt="Imagem"
-                    src={previewPhotoCards}
-                  />
-                )}
-                <div className="card-title">{titleCard}</div>
-                <div className="card-content">{descriptionCard}</div>
-              </div>
-            </div>
-            <div className="container-info">
+            <>
               <span className="title-container-info">
-                <FaInfoCircle style={{ marginRight: 15 }} />
-                INFORMAÇÕES DO PRODUTO
-              </span>
-              <div className="grid-products-info">
-                {photoCards ? (
-                  <button
-                    className="remove-img"
-                    onClick={() => removePhotoCard()}
-                    type="button"
-                  >
-                    <FaTimes style={{ fontSize: 50, color: "#f44336" }} />
-                    <p>{photoCards.name}</p>
-                  </button>
-                ) : (
-                  <label id="photoFile">
-                    <input
-                      type="file"
-                      onChange={(event) => setPhotoCards(event.target.files[0])}
-                    />
-                    <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
-                    Clique aqui para adicionar a foto do produto
-                  </label>
-                )}
-                <div>
-                  <span className="label">
-                    Título do Card
-                    <span
-                      style={{
-                        fontWeight: 400,
-                        fontStyle: "italic",
-                        color: "#777",
-                        marginLeft: 15,
-                        fontSize: 11,
-                      }}
-                    >
-                      Máx. 24 caracteres
-                    </span>
-                  </span>
-                  <input
-                    type="text"
-                    className="input-text"
-                    onChange={(e) => setTitleCard(e.target.value.toUpperCase())}
-                    value={titleCard}
-                    maxLength={24}
-                  />
-                  <span className="label">
-                    Descrição do Produto
-                    <span
-                      style={{
-                        fontWeight: 400,
-                        fontStyle: "italic",
-                        color: "#777",
-                        marginLeft: 15,
-                        fontSize: 11,
-                      }}
-                    >
-                      Máx. 250 caracteres
-                    </span>
-                  </span>
-                  <textarea
-                    type="text"
-                    className="text-area"
-                    style={{ height: 55 }}
-                    onChange={(e) => setDescriptionCard(e.target.value)}
-                    value={descriptionCard}
-                    maxLength={250}
-                  />
+                EXEMPLOS DAS IMAGENS COM DESCRIÇÃO
+            </span>
+              <div className="cards-row">
+                <div className="card-product-two">
+                  {!photoCards ? (
+                    <div className="card-image-icon">
+                      <FaImages
+                        style={{ fontSize: 150, color: "rgb(237, 186, 0)" }}
+                      />
+                    </div>
+                  ) : (
+                      <img
+                        className="card-product"
+                        alt="Imagem"
+                        src={previewPhotoCards}
+                      />
+                    )}
+                  <div className="card-title">{titleCard}</div>
+                  <div className="card-content">{descriptionCard}</div>
                 </div>
               </div>
-              <hr className="divider" />
-              <div className="container-buttons">
-                <button
-                  onClick={() => {}}
-                  type="button"
-                  className="btn-primary"
-                >
-                  <span className="btn-label">
-                    <FaSave />
-                  </span>
-                  <span className="btn-text">Salvar Informações</span>
-                </button>
+              <div className="container-info">
+                <span className="title-container-info">
+                  <FaInfoCircle style={{ marginRight: 15 }} />
+                INFORMAÇÕES DO PRODUTO
+              </span>
+                <div className="grid-products-info">
+                  {photoCards ? (
+                    <button
+                      className="remove-img"
+                      onClick={() => removePhotoCard()}
+                      type="button"
+                    >
+                      <FaTimes style={{ fontSize: 50, color: "#f44336" }} />
+                      <p>{photoCards.name}</p>
+                    </button>
+                  ) : (
+                      <label id="photoFile">
+                        <input
+                          type="file"
+                          onChange={(event) => setPhotoCards(event.target.files[0])}
+                        />
+                        <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
+                    Clique aqui para adicionar a foto do produto
+                      </label>
+                    )}
+                  <div>
+                    <span className="label">
+                      Título do Card
+                    <span
+                        style={{
+                          fontWeight: 400,
+                          fontStyle: "italic",
+                          color: "#777",
+                          marginLeft: 15,
+                          fontSize: 11,
+                        }}
+                      >
+                        Máx. 24 caracteres
+                    </span>
+                    </span>
+                    <input
+                      type="text"
+                      className="input-text"
+                      onChange={(e) => setTitleCard(e.target.value.toUpperCase())}
+                      value={titleCard}
+                      maxLength={24}
+                    />
+                    <span className="label">
+                      Descrição do Produto
+                    <span
+                        style={{
+                          fontWeight: 400,
+                          fontStyle: "italic",
+                          color: "#777",
+                          marginLeft: 15,
+                          fontSize: 11,
+                        }}
+                      >
+                        Máx. 250 caracteres
+                    </span>
+                    </span>
+                    <textarea
+                      type="text"
+                      className="text-area"
+                      style={{ height: 55 }}
+                      onChange={(e) => setDescriptionCard(e.target.value)}
+                      value={descriptionCard}
+                      maxLength={250}
+                    />
+                  </div>
+                </div>
+                <hr className="divider" />
+                <div className="container-buttons">
+                  <button
+                    onClick={() => { }}
+                    type="button"
+                    className="btn-primary"
+                  >
+                    <span className="btn-label">
+                      <FaSave />
+                    </span>
+                    <span className="btn-text">Salvar Informações</span>
+                  </button>
+                </div>
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
 
         <div className="title-page-two">
           <div className="header-left">
@@ -420,7 +420,7 @@ export default function SavePages() {
               Listas
             </label>
             <button
-              onClick={() => {}}
+              onClick={() => { }}
               type="button"
               className="btn-white btn-small"
             >
@@ -444,12 +444,12 @@ export default function SavePages() {
                   alt="ImagesOne"
                 />
               ) : (
-                <div className="card-image-icon">
-                  <FaImages
-                    style={{ fontSize: 150, color: "rgb(237, 186, 0)" }}
-                  />
-                </div>
-              )}
+                  <div className="card-image-icon">
+                    <FaImages
+                      style={{ fontSize: 150, color: "rgb(237, 186, 0)" }}
+                    />
+                  </div>
+                )}
               {imageTwo ? (
                 <img
                   src={previewImageTwo}
@@ -457,12 +457,12 @@ export default function SavePages() {
                   alt="ImagesOne"
                 />
               ) : (
-                <div className="card-image-icon">
-                  <FaImages
-                    style={{ fontSize: 150, color: "rgb(237, 186, 0)" }}
-                  />
-                </div>
-              )}
+                  <div className="card-image-icon">
+                    <FaImages
+                      style={{ fontSize: 150, color: "rgb(237, 186, 0)" }}
+                    />
+                  </div>
+                )}
             </div>
 
             <div className="container-info">
@@ -482,22 +482,22 @@ export default function SavePages() {
                       <p>{imageOne.name}</p>
                     </button>
                   ) : (
-                    <label id="photoFile">
-                      <input
-                        type="file"
-                        onChange={(event) => setImageOne(event.target.files[0])}
-                      />
-                      <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
+                      <label id="photoFile">
+                        <input
+                          type="file"
+                          onChange={(event) => setImageOne(event.target.files[0])}
+                        />
+                        <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
                       Clique aqui para adicionar a primeira imagem dos tecidos
-                    </label>
-                  )}
+                      </label>
+                    )}
                   <button
-                    onClick={() => {}}
+                    onClick={() => { }}
                     type="button"
-                    className="btn-primary btn-small"
+                    className="btn-primary"
                     style={{ marginTop: 10 }}
                   >
-                    <span className="btn-label btn-label-small">
+                    <span className="btn-label">
                       <FaSave />
                     </span>
                     <span className="btn-text">Salvar Primeira Imagem</span>
@@ -514,22 +514,22 @@ export default function SavePages() {
                       <p>{imageTwo.name}</p>
                     </button>
                   ) : (
-                    <label id="photoFile">
-                      <input
-                        type="file"
-                        onChange={(event) => setImageTwo(event.target.files[0])}
-                      />
-                      <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
+                      <label id="photoFile">
+                        <input
+                          type="file"
+                          onChange={(event) => setImageTwo(event.target.files[0])}
+                        />
+                        <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
                       Clique aqui para adicionar a segunda imagem dos tecidos
-                    </label>
-                  )}
+                      </label>
+                    )}
                   <button
-                    onClick={() => {}}
+                    onClick={() => { }}
                     type="button"
-                    className="btn-primary btn-small"
+                    className="btn-primary"
                     style={{ marginTop: 10 }}
                   >
-                    <span className="btn-label btn-label-small">
+                    <span className="btn-label">
                       <FaSave />
                     </span>
                     <span className="btn-text">Salvar Segunda Imagem</span>
@@ -539,109 +539,109 @@ export default function SavePages() {
             </div>
           </>
         ) : (
-          <>
-            <span className="title-container-info">
-              EXEMPLOS DE LISTA DE TECIDOS
-            </span>
-            <div className="container-tecido">
-              <div
-                className={
-                  firstItem === true ? "content-tecido-one" : "content-tecido"
-                }
-              >
-                <h1 className="title-master-tecido">Opções de Malhas</h1>
-                <span className="title-tecido">
-                  <FaCircle style={{ marginRight: "15px", fontSize: "35px" }} />
-                  {titleTecido}
-                </span>
-                <div className="container-info-tecido">
-                  <span className="info-tecido">{descriptionTecido}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="container-info">
+            <>
               <span className="title-container-info">
-                <FaInfoCircle style={{ marginRight: 15 }} />
-                INFORMAÇÕES DO PRODUTO
-              </span>
-              <div className="grid-products-info">
-                <div>
-                  <span className="label">Primeiro Item?</span>
-                  <div className="radio-container">
-                    <input
-                      type="radio"
-                      id="radio-five"
-                      name="first-item"
-                      onChange={() => setFirstItem(true)}
-                      checked={firstItem === true ? true : false}
-                    />
-                    <label className="radio-label" htmlFor="radio-five">
-                      Sim
-                    </label>
-
-                    <input
-                      type="radio"
-                      id="radio-six"
-                      name="first-item"
-                      onChange={() => setFirstItem(false)}
-                      checked={firstItem === false ? true : false}
-                    />
-                    <label className="radio-label" htmlFor="radio-six">
-                      Não
-                    </label>
+                EXEMPLOS DE LISTA DE TECIDOS
+            </span>
+              <div className="container-tecido">
+                <div
+                  className={
+                    firstItem === true ? "content-tecido-one" : "content-tecido"
+                  }
+                >
+                  <h1 className="title-master-tecido">Opções de Malhas</h1>
+                  <span className="title-tecido">
+                    <FaCircle style={{ marginRight: "15px", fontSize: "35px" }} />
+                    {titleTecido}
+                  </span>
+                  <div className="container-info-tecido">
+                    <span className="info-tecido">{descriptionTecido}</span>
                   </div>
                 </div>
-                <div>
-                  <span className="label">
-                    Título do Tecido
+              </div>
+
+              <div className="container-info">
+                <span className="title-container-info">
+                  <FaInfoCircle style={{ marginRight: 15 }} />
+                INFORMAÇÕES DO PRODUTO
+              </span>
+                <div className="grid-products-info">
+                  <div>
+                    <span className="label">Primeiro Item?</span>
+                    <div className="radio-container">
+                      <input
+                        type="radio"
+                        id="radio-five"
+                        name="first-item"
+                        onChange={() => setFirstItem(true)}
+                        checked={firstItem === true ? true : false}
+                      />
+                      <label className="radio-label" htmlFor="radio-five">
+                        Sim
+                    </label>
+
+                      <input
+                        type="radio"
+                        id="radio-six"
+                        name="first-item"
+                        onChange={() => setFirstItem(false)}
+                        checked={firstItem === false ? true : false}
+                      />
+                      <label className="radio-label" htmlFor="radio-six">
+                        Não
+                    </label>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="label">
+                      Título do Tecido
                     <span
-                      style={{
-                        fontWeight: 400,
-                        fontStyle: "italic",
-                        color: "#777",
-                        marginLeft: 15,
-                        fontSize: 11,
-                      }}
-                    >
-                      Máx. 250 caracteres
+                        style={{
+                          fontWeight: 400,
+                          fontStyle: "italic",
+                          color: "#777",
+                          marginLeft: 15,
+                          fontSize: 11,
+                        }}
+                      >
+                        Máx. 250 caracteres
                     </span>
-                  </span>
-                  <input
-                    type="text"
-                    className="input-text"
-                    onChange={(e) => setTitleTecido(e.target.value)}
-                    value={titleTecido}
-                    maxLength={250}
-                  />
-                  <span className="label">Descrição do Tecido</span>
-                  <textarea
-                    type="text"
-                    className="text-area-two"
-                    style={{ height: 55 }}
-                    onChange={(e) => setDescriptionTecido(e.target.value)}
-                    value={descriptionTecido}
-                    maxLength={500}
-                    rows={7}
-                  />
+                    </span>
+                    <input
+                      type="text"
+                      className="input-text"
+                      onChange={(e) => setTitleTecido(e.target.value)}
+                      value={titleTecido}
+                      maxLength={250}
+                    />
+                    <span className="label">Descrição do Tecido</span>
+                    <textarea
+                      type="text"
+                      className="text-area-two"
+                      style={{ height: 55 }}
+                      onChange={(e) => setDescriptionTecido(e.target.value)}
+                      value={descriptionTecido}
+                      maxLength={500}
+                      rows={7}
+                    />
+                  </div>
+                </div>
+                <hr className="divider" />
+                <div className="container-buttons">
+                  <button
+                    onClick={() => { }}
+                    type="button"
+                    className="btn-primary"
+                  >
+                    <span className="btn-label">
+                      <FaSave />
+                    </span>
+                    <span className="btn-text">Salvar Informações</span>
+                  </button>
                 </div>
               </div>
-              <hr className="divider" />
-              <div className="container-buttons">
-                <button
-                  onClick={() => {}}
-                  type="button"
-                  className="btn-primary"
-                >
-                  <span className="btn-label">
-                    <FaSave />
-                  </span>
-                  <span className="btn-text">Salvar Informações</span>
-                </button>
-              </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
 
         <div className="title-page-two">
           <div className="header-left">
@@ -665,23 +665,23 @@ export default function SavePages() {
               alt="Coments"
             />
           ) : (
-            <>
-              <div
-                style={{
-                  width: "550px",
-                  height: "110px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "#fff",
-                  borderRadius: "3px",
-                  boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <FaComment style={{ fontSize: 70 }} />
-              </div>
-            </>
-          )}
+              <>
+                <div
+                  style={{
+                    width: "550px",
+                    height: "110px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    backgroundColor: "#fff",
+                    borderRadius: "3px",
+                    boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.1)",
+                  }}
+                >
+                  <FaComment style={{ fontSize: 70 }} />
+                </div>
+              </>
+            )}
         </div>
 
         <div className="container-info">
@@ -700,22 +700,22 @@ export default function SavePages() {
                 <p>{comments.name}</p>
               </button>
             ) : (
-              <label id="photoFile">
-                <input
-                  type="file"
-                  onChange={(event) => setComments(event.target.files[0])}
-                />
-                <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
+                <label id="photoFile">
+                  <input
+                    type="file"
+                    onChange={(event) => setComments(event.target.files[0])}
+                  />
+                  <FaImages style={{ fontSize: 30, marginBottom: 20 }} />
                 Clique aqui para adicionar uma foto do comentário
-              </label>
-            )}
+                </label>
+              )}
             <button
-              onClick={() => {}}
+              onClick={() => { }}
               type="button"
-              className="btn-primary btn-small"
+              className="btn-primary"
               style={{ marginTop: 10 }}
             >
-              <span className="btn-label btn-label-small">
+              <span className="btn-label">
                 <FaSave />
               </span>
               <span className="btn-text">Salvar Comentário</span>
