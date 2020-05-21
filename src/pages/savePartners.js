@@ -10,7 +10,6 @@ import {
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import Lottie from "react-lottie";
-import animationData from "../animations/505.json";
 import successData from "../animations/success.json";
 import errorData from "../animations/error.json";
 import loadingData from "../animations/loading.json";
