@@ -103,12 +103,39 @@ export default function SaveCatalog() {
   function handleProduct(info) {
     setProductSelect(info);
     setIdProduct(info.value);
+    findCatalogId(info.value);
   }
 
   async function findCatalog() {
     setLoadingFind(true);
     await api
       .get(`/portifolio/${idProduct}`)
+      .then((response) => {
+        setCatalogs(response.data.portifolio);
+        setUrlPhoto(response.data.urlImage);
+        setLoadingFind(false);
+      })
+      .catch((error) => {
+        if (error.message === "Network Error") {
+          setErroStatus("Sem conexão com o servidor");
+          setErroMessage(
+            "Não foi possível estabelecer uma conexão com o servidor"
+          );
+          setErroModal(true);
+          setLoadingFind(false);
+        } else {
+          setErroStatus(error.response.data.erro.message);
+          setErroMessage(error.response.data.erro.type);
+          setErroModal(true);
+          setLoadingFind(false);
+        }
+      });
+  }
+
+  async function findCatalogId(id) {
+    setLoadingFind(true);
+    await api
+      .get(`/portifolio/${id}`)
       .then((response) => {
         setCatalogs(response.data.portifolio);
         setUrlPhoto(response.data.urlImage);
@@ -232,6 +259,7 @@ export default function SaveCatalog() {
               placeholder="Selecione o Produto"
               onChange={(valor) => handleProduct(valor)}
               value={productSelect}
+              noOptionsMessage={() => <p>Nenhum produto cadastrado</p>}
             />
           </div>
         </div>
@@ -241,7 +269,7 @@ export default function SaveCatalog() {
               <>
                 {catalogs.map((cat) => (
                   <div
-                    className="card-product"
+                    className="card-product-two"
                     style={{ marginBottom: "20px" }}
                     key={cat._id}
                   >

@@ -554,6 +554,7 @@ export default function SavePages() {
               placeholder="Selecione o Produto"
               onChange={(valor) => handleProduct(valor)}
               value={productSelect}
+              noOptionsMessage={() => <p>Nenhum produto cadastrado</p>}
             />
           </div>
         </div>

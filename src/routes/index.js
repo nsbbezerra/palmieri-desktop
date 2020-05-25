@@ -9,7 +9,6 @@ import SaveCatalog from "../pages/saveCatalog";
 import SaveDepoiment from "../pages/saveDepoiments";
 import ListProducts from "../pages/listProducts";
 import ListPartners from "../pages/listPartners";
-import ListDepoiments from "../pages/listDepoiments";
 import System from "../pages/system";
 
 export default function RoutesApp() {
@@ -38,9 +37,6 @@ export default function RoutesApp() {
       </Route>
       <Route path="/listPartners">
         <ListPartners />
-      </Route>
-      <Route path="/listDepoiments">
-        <ListDepoiments />
       </Route>
       <Route path="/system">
         <System />

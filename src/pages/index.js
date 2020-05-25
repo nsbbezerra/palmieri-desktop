@@ -184,7 +184,7 @@ export default function Index() {
                 className="icon-card"
                 style={{ marginRight: loading === true ? "25px" : "" }}
               />
-              PORTIFÓLIO CADASTRADOS
+              CATÁLOGOS CADASTRADOS
               {loading === false ? (
                 <span className="count">{portifolio}</span>
               ) : (
@@ -234,10 +234,6 @@ export default function Index() {
           <Link to="/listPartners" className="action-button">
             <FaIdCardAlt className="action-button-icon" />
             LISTAGEM DE FUNCIONÁRIOS
-          </Link>
-          <Link to="/listDepoiments" className="action-button">
-            <FaRocketchat className="action-button-icon" />
-            LISTAGEM DE DEPOIMENTOS
           </Link>
         </div>
       </div>

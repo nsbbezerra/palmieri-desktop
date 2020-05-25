@@ -7,6 +7,7 @@ import {
   FaTimes,
   FaInfoCircle,
   FaVideo,
+  FaCheck,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
@@ -33,6 +34,7 @@ export default function SaveDepoiments() {
   const [depoiments, setDepoiments] = useState([]);
   const [videos, setVideos] = useState([]);
   const [urlImages, setUrlImages] = useState("");
+  const [modalConfirm, setModalConfirm] = useState(false);
 
   const previewImage = useMemo(() => {
     return imageDepoiment ? URL.createObjectURL(imageDepoiment) : null;
@@ -191,6 +193,78 @@ export default function SaveDepoiments() {
     admin();
   }, []);
 
+  async function removeVideo(id) {
+    let newArray = await videos.filter(function (item) {
+      return item._id !== id;
+    });
+    await setVideos(newArray);
+    updateVideos(newArray);
+  }
+
+  async function updateVideos(values) {
+    setLoading(true);
+    await api
+      .put(`/uploadVideo`, {
+        videos: values,
+      })
+      .then((response) => {
+        setSuccessMessage(response.data.message);
+        setLoading(false);
+        setSuccessModal(true);
+      })
+      .catch((error) => {
+        if (error.message === "Network Error") {
+          setErroStatus("Sem conexão com o servidor");
+          setErroMessage(
+            "Não foi possível estabelecer uma conexão com o servidor"
+          );
+          setErroModal(true);
+          setLoading(false);
+        } else {
+          setErroStatus(error.response.data.erro.message);
+          setErroMessage(error.response.data.erro.type);
+          setErroModal(true);
+          setLoading(false);
+        }
+      });
+  }
+
+  async function removeDepoiments(id) {
+    let newArray = await depoiments.filter(function (item) {
+      return item._id !== id;
+    });
+    await setDepoiments(newArray);
+    updateDepoiments(newArray);
+  }
+
+  async function updateDepoiments(values) {
+    setLoading(true);
+    await api
+      .put(`/uploadImage`, {
+        images: values,
+      })
+      .then((response) => {
+        setSuccessMessage(response.data.message);
+        setLoading(false);
+        setSuccessModal(true);
+      })
+      .catch((error) => {
+        if (error.message === "Network Error") {
+          setErroStatus("Sem conexão com o servidor");
+          setErroMessage(
+            "Não foi possível estabelecer uma conexão com o servidor"
+          );
+          setErroModal(true);
+          setLoading(false);
+        } else {
+          setErroStatus(error.response.data.erro.message);
+          setErroMessage(error.response.data.erro.type);
+          setErroModal(true);
+          setLoading(false);
+        }
+      });
+  }
+
   return (
     <>
       <div className="header-component">
@@ -211,6 +285,12 @@ export default function SaveDepoiments() {
             <>
               {depoiments.map((dep) => (
                 <div className="used-item" key={dep._id}>
+                  <button
+                    className="btn-badge"
+                    onClick={() => removeDepoiments(dep._id)}
+                  >
+                    <FaTimes />
+                  </button>
                   <div className="item-img">
                     <img
                       className="img-item-used"
@@ -333,6 +413,12 @@ export default function SaveDepoiments() {
             <>
               {videos.map((vid) => (
                 <div className="video-container" key={vid._id}>
+                  <button
+                    className="btn-badge"
+                    onClick={() => removeVideo(vid._id)}
+                  >
+                    <FaTimes />
+                  </button>
                   <iframe
                     width="100%"
                     height="100%"
@@ -532,6 +618,65 @@ export default function SaveDepoiments() {
             >
               Buscando Informações, Aguarde...
             </p>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={modalConfirm}
+        contentLabel="Rota para a API"
+        className="modal"
+        onRequestClose={() => setModalConfirm(false)}
+        overlayClassName="overlay"
+        ariaHideApp={false}
+      >
+        <div className="modal-container">
+          <div className="modal-header">
+            <span>Exclusão de Catálogo</span>
+            <button
+              className="btn-close-modal"
+              onClick={() => {
+                setModalConfirm(false);
+              }}
+            >
+              <FaTimes />
+            </button>
+          </div>
+          <div className="modal-content">
+            <p
+              style={{
+                fontWeight: "700",
+                width: "100%",
+                textAlign: "center",
+                fontSize: 16,
+                color: "#444",
+              }}
+            >
+              Pretende excluir este item?
+            </p>
+          </div>
+          <div className="modal-footer">
+            <button
+              onClick={() => setModalConfirm(false)}
+              type="button"
+              className="btn-primary btn-small btn-erro"
+            >
+              <span className="btn-label btn-label-small btn-erro-label">
+                <FaTimes />
+              </span>
+              <span className="btn-text">Não</span>
+            </button>
+
+            <button
+              onClick={() => {}}
+              type="button"
+              className="btn-primary btn-small btn-success"
+            >
+              <span className="btn-label btn-label-small btn-success-label">
+                <FaCheck />
+              </span>
+              <span className="btn-text">Sim</span>
+            </button>
           </div>
         </div>
       </Modal>

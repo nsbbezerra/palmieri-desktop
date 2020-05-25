@@ -66,12 +66,6 @@ export default function Menu() {
             FUNCIONÁRIOS
           </Link>
         </li>
-        <li className="menu-item">
-          <Link to="/listDepoiments" className="menu-link">
-            <FaRocketchat style={{ marginRight: 15 }} />
-            DEPOIMENTOS
-          </Link>
-        </li>
       </ul>
     </>
   );
