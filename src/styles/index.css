@@ -725,6 +725,12 @@ textarea {
   transform: scale(0.98);
 }
 
+.btn-white:disabled {
+  opacity: 0.7;
+  transform: scale(1);
+  cursor: not-allowed;
+}
+
 .btn-primary:active {
   transform: scale(0.98);
 }
@@ -894,9 +900,8 @@ select {
 }
 
 .containter-image-info-tecido {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 15px;
+  display: block;
+  width: 100%;
   margin-top: 10px;
 }
 

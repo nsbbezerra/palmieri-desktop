@@ -119,7 +119,6 @@ export default function SaveDepoiments() {
     await api
       .get("/depoiments")
       .then((response) => {
-        console.log(response);
         if (response.data.allDepoiments) {
           setDepoiments(response.data.allDepoiments.image);
           setVideos(response.data.allDepoiments.video);
@@ -338,9 +337,9 @@ export default function SaveDepoiments() {
                     width="100%"
                     height="100%"
                     src={vid.url}
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
+                    allowFullScreen
                   ></iframe>
                 </div>
               ))}
@@ -353,8 +352,8 @@ export default function SaveDepoiments() {
               width="100%"
               height="100%"
               src={urlVide}
-              frameborder="0"
-              allowfullscreen
+              frameBorder="0"
+              allowFullScreen
             ></iframe>
           </div>
         </div>
