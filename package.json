@@ -62,7 +62,7 @@
     ],
     "publish": {
       "provider": "github",
-      "repo": "Torneadora",
+      "repo": "palmieri",
       "owner": "nkinformatica"
     },
     "win": {
