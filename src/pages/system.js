@@ -18,7 +18,7 @@ export default function System() {
   const [success, setSuccess] = useState(false);
 
   const successOptions = {
-    loop: true,
+    loop: false,
     autoplay: true,
     animationData: successData,
     rendererSettings: {
@@ -139,7 +139,7 @@ export default function System() {
                   color: "#4caf50",
                 }}
               >
-                Rota Salva com Sucesso!
+                Rota Salva com Sucesso! Reinicie a aplicação.
               </p>
             </div>
           </div>

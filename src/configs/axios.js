@@ -8,7 +8,11 @@ var url;
 if (!ipServ && !portServ) {
   url = "not";
 } else {
-  url = `${ipServ}:${portServ}`;
+  if (portServ === "" || !portServ) {
+    url = `${ipServ}`;
+  } else {
+    url = `${ipServ}:${portServ}`;
+  }
 }
 
 const api = axios.create({
