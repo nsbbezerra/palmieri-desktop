@@ -10,6 +10,7 @@ import SaveDepoiment from "../pages/saveDepoiments";
 import ListProducts from "../pages/listProducts";
 import ListPartners from "../pages/listPartners";
 import System from "../pages/system";
+import Home from "../pages/home";
 
 export default function RoutesApp() {
   return (
@@ -40,6 +41,9 @@ export default function RoutesApp() {
       </Route>
       <Route path="/system">
         <System />
+      </Route>
+      <Route path="/home">
+        <Home />
       </Route>
     </Switch>
   );

@@ -1385,3 +1385,10 @@ table.table-partners tbody tr:last-child td {
   width: 300px !important;
   height: 300px !important;
 }
+
+.product-input-grid {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-gap: 15px;
+  margin-top: -7px;
+}

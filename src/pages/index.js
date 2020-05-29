@@ -227,6 +227,10 @@ export default function Index() {
         </div>
 
         <div className="grid-five">
+          <Link to="/home" className="action-button">
+            <FaHome className="action-button-icon" />
+            PÁGINA INCIAL
+          </Link>
           <Link to="/listProducts" className="action-button">
             <FaTshirt className="action-button-icon" />
             LISTAGEM DE PRODUTOS

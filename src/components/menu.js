@@ -8,6 +8,7 @@ import {
   FaIdCardAlt,
   FaImages,
   FaRocketchat,
+  FaHome,
 } from "react-icons/fa";
 
 export default function Menu() {
@@ -18,6 +19,12 @@ export default function Menu() {
         CADASTROS
       </div>
       <ul className="menu">
+        <li className="menu-item">
+          <Link to="/home" className="menu-link">
+            <FaHome style={{ marginRight: 15 }} />
+            PÁGINA INICIAL
+          </Link>
+        </li>
         <li className="menu-item">
           <Link to="/saveProducts" className="menu-link">
             <FaTshirt style={{ marginRight: 15 }} />

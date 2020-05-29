@@ -30,6 +30,7 @@ export default function SaveProducts() {
   const [loading, setLoading] = useState(false);
   const [idProduct, setIdProduct] = useState("");
   const [disabledBanner, setDisabledBanner] = useState(true);
+  const [imageDesc, setImageDesc] = useState("");
 
   function clearAll() {
     removeBanner();
@@ -97,6 +98,12 @@ export default function SaveProducts() {
       setErroModal(true);
       return false;
     }
+    if (imageDesc === "") {
+      setErroStatus("Erro ao cadastrar o Produto");
+      setErroMessage("Insira uma descrição para a imagem do produto");
+      setErroModal(true);
+      return false;
+    }
     if (photo === null) {
       setErroStatus("Erro ao cadastrar o Produto");
       setErroMessage("Não existe uma imagem para o produto");
@@ -108,6 +115,7 @@ export default function SaveProducts() {
     data.append("name", title);
     data.append("description", description);
     data.append("image", photo);
+    data.append("imageDescription", imageDesc);
     await api
       .post("/products", data)
       .then((response) => {
@@ -263,27 +271,43 @@ export default function SaveProducts() {
               </label>
             )}
             <div>
-              <span className="label">
-                Nome do Produto
-                <span
-                  style={{
-                    fontWeight: 400,
-                    fontStyle: "italic",
-                    color: "#777",
-                    marginLeft: 15,
-                    fontSize: 11,
-                  }}
-                >
-                  Máx. 24 caracteres
-                </span>
-              </span>
-              <input
-                type="text"
-                className="input-text"
-                onChange={(e) => setTitle(e.target.value.toUpperCase())}
-                value={title}
-                maxLength={24}
-              />
+              <div className="product-input-grid">
+                <div>
+                  <span className="label">
+                    Nome do Produto
+                    <span
+                      style={{
+                        fontWeight: 400,
+                        fontStyle: "italic",
+                        color: "#777",
+                        marginLeft: 15,
+                        fontSize: 11,
+                      }}
+                    >
+                      Máx. 24 caracteres
+                    </span>
+                  </span>
+                  <input
+                    type="text"
+                    className="input-text"
+                    onChange={(e) => setTitle(e.target.value.toUpperCase())}
+                    value={title}
+                    maxLength={24}
+                  />
+                </div>
+                <div>
+                  <span className="label">
+                    Descrição de Indexação da Imagem
+                  </span>
+                  <input
+                    type="text"
+                    className="input-text"
+                    onChange={(e) => setImageDesc(e.target.value.toUpperCase())}
+                    value={imageDesc}
+                    style={{ marginTop: 2 }}
+                  />
+                </div>
+              </div>
               <span className="label">
                 Descrição do Produto
                 <span

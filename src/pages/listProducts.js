@@ -34,6 +34,7 @@ export default function ListProducts() {
   const [imagem, setImagem] = useState(null);
   const [modalEditBanner, setModalEditBanner] = useState(false);
   const [modalEditImage, setModalEditImage] = useState(false);
+  const [imageDesc, setImageDesc] = useState("");
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -131,12 +132,12 @@ export default function ListProducts() {
             "Não foi possível estabelecer uma conexão com o servidor"
           );
           setErroModal(true);
-          setLoadingFind(false);
+          setLoading(false);
         } else {
           setErroStatus(error.response.data.erro.message);
           setErroMessage(error.response.data.erro.type);
           setErroModal(true);
-          setLoadingFind(false);
+          setLoading(false);
         }
       });
   }
@@ -148,6 +149,7 @@ export default function ListProducts() {
   function handleEdit(value) {
     setTitle(value.name);
     setDescription(value.description);
+    setImageDesc(value.imageDescription);
     setIdProduct(value._id);
     setModalEdit(true);
   }
@@ -159,6 +161,7 @@ export default function ListProducts() {
       .put(`/changeInfo/${idProduct}`, {
         name: title,
         description: description,
+        imageDescription: imageDesc,
       })
       .then((response) => {
         setSuccessMessage(response.data.message);
@@ -573,6 +576,14 @@ export default function ListProducts() {
                 onChange={(e) => setTitle(e.target.value.toUpperCase())}
                 value={title}
                 maxLength={24}
+              />
+              <span className="label">Descrição de Indexação da Imagem</span>
+              <input
+                type="text"
+                className="input-text"
+                onChange={(e) => setImageDesc(e.target.value.toUpperCase())}
+                value={imageDesc}
+                style={{ marginTop: 2 }}
               />
               <span className="label">
                 Descrição do Produto
