@@ -9,6 +9,7 @@ import {
   FaImages,
   FaRocketchat,
   FaHome,
+  FaTags,
 } from "react-icons/fa";
 
 export default function Menu() {
@@ -20,39 +21,15 @@ export default function Menu() {
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <Link to="/home" className="menu-link">
+          <Link to="/" className="menu-link">
             <FaHome style={{ marginRight: 15 }} />
             PÁGINA INICIAL
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/saveProducts" className="menu-link">
-            <FaTshirt style={{ marginRight: 15 }} />
-            PRODUTOS
-          </Link>
-        </li>
-        <li className="menu-item">
-          <Link to="/savePages" className="menu-link">
-            <FaPager style={{ marginRight: 15 }} />
-            PÁGINAS
-          </Link>
-        </li>
-        <li className="menu-item">
-          <Link to="/savePartners" className="menu-link">
-            <FaIdCardAlt style={{ marginRight: 15 }} />
-            FUNCIONÁRIOS
-          </Link>
-        </li>
-        <li className="menu-item">
-          <Link to="/saveCatalog" className="menu-link">
-            <FaImages style={{ marginRight: 15 }} />
-            CATÁLOGOS
-          </Link>
-        </li>
-        <li className="menu-item">
-          <Link to="/saveDepoiment" className="menu-link">
-            <FaRocketchat style={{ marginRight: 15 }} />
-            DEPOIMENTOS
+          <Link to="/category" className="menu-link">
+            <FaTags style={{ marginRight: 15 }} />
+            CATEGORIAS
           </Link>
         </li>
       </ul>
@@ -60,20 +37,7 @@ export default function Menu() {
         <FaListUl style={{ marginRight: 10 }} />
         LISTAGENS
       </div>
-      <ul className="menu">
-        <li className="menu-item">
-          <Link to="/listProducts" className="menu-link">
-            <FaTshirt style={{ marginRight: 15 }} />
-            PRODUTOS
-          </Link>
-        </li>
-        <li className="menu-item">
-          <Link to="/listPartners" className="menu-link">
-            <FaIdCardAlt style={{ marginRight: 15 }} />
-            FUNCIONÁRIOS
-          </Link>
-        </li>
-      </ul>
+      <ul className="menu"></ul>
     </>
   );
 }

@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
   FaHome,
-  FaTshirt,
-  FaIdCardAlt,
-  FaImages,
   FaBars,
-  FaPager,
-  FaRocketchat,
   FaSave,
   FaTimes,
   FaTools,
+  FaTags,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
@@ -17,8 +13,6 @@ import Lottie from "react-lottie";
 import animationData from "../animations/505.json";
 import successData from "../animations/success.json";
 import errorData from "../animations/error.json";
-import loadingData from "../animations/loading.json";
-import api from "../configs/axios";
 
 export default function Index() {
   const [modal, setModal] = useState(false);
@@ -26,13 +20,9 @@ export default function Index() {
   const [port, setPort] = useState("");
   const [success, setSuccess] = useState(false);
   const [erro, setErro] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [erroModal, setErroModal] = useState(false);
   const [messageErro, setErroMessage] = useState("");
   const [erroStatus, setErroStatus] = useState("");
-  const [products, setProducts] = useState(0);
-  const [partners, setPartners] = useState(0);
-  const [portifolio, setPortifolio] = useState(0);
 
   const defaultOptions = {
     loop: true,
@@ -61,14 +51,9 @@ export default function Index() {
     },
   };
 
-  const loadingOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: loadingData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  useEffect(() => {
+    admin();
+  }, []);
 
   async function admin() {
     const urlServidor = await localStorage.getItem("url");
@@ -78,40 +63,8 @@ export default function Index() {
     } else {
       setUrlServer(urlServidor);
       setPort(portaServidor);
-      finder();
     }
   }
-
-  async function finder() {
-    setLoading(true);
-    await api
-      .get("/dashboard")
-      .then((response) => {
-        setProducts(response.data.products);
-        setPartners(response.data.partners);
-        setPortifolio(response.data.portifilio);
-        setLoading(false);
-      })
-      .catch((error) => {
-        if (error.message === "Network Error") {
-          setErroStatus("Sem conexão com o servidor");
-          setErroMessage(
-            "Não foi possível estabelecer uma conexão com o servidor"
-          );
-          setErroModal(true);
-          setLoading(false);
-        } else {
-          setErroStatus(error.response.data.erro.message);
-          setErroMessage(error.response.data.erro.type);
-          setErroModal(true);
-          setLoading(false);
-        }
-      });
-  }
-
-  useEffect(() => {
-    admin();
-  }, []);
 
   async function saveRoute() {
     await localStorage.setItem("url", urlServer);
@@ -141,103 +94,15 @@ export default function Index() {
         </div>
       </div>
       <div className="content-page">
-        <div className="grid-cards">
-          <div className="card">
-            <div className="card-row">
-              <FaTshirt
-                className="icon-card"
-                style={{ marginRight: loading === true ? "25px" : "" }}
-              />
-              <p>PRODUTOS CADASTRADOS</p>
-              {loading === false ? (
-                <span className="count">{products}</span>
-              ) : (
-                <Lottie
-                  options={loadingOptions}
-                  width={"70px"}
-                  height={"70px"}
-                />
-              )}
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-row">
-              <FaIdCardAlt
-                className="icon-card"
-                style={{ marginRight: loading === true ? "25px" : "" }}
-              />
-              FUNCIONÁRIOS CADASTRADOS
-              {loading === false ? (
-                <span className="count">{partners}</span>
-              ) : (
-                <Lottie
-                  options={loadingOptions}
-                  width={"70px"}
-                  height={"70px"}
-                />
-              )}
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-row">
-              <FaImages
-                className="icon-card"
-                style={{ marginRight: loading === true ? "25px" : "" }}
-              />
-              CATÁLOGOS CADASTRADOS
-              {loading === false ? (
-                <span className="count">{portifolio}</span>
-              ) : (
-                <Lottie
-                  options={loadingOptions}
-                  width={"70px"}
-                  height={"70px"}
-                />
-              )}
-            </div>
-          </div>
-        </div>
-
         <div className="title-page">
           <FaBars style={{ marginRight: 20 }} />
           ACESSO RÁPIDO
         </div>
 
         <div className="grid-five">
-          <Link to="/saveProducts" className="action-button">
-            <FaTshirt className="action-button-icon" />
-            CADASTRO DE PRODUTOS
-          </Link>
-          <Link to="/savePages" className="action-button">
-            <FaPager className="action-button-icon" />
-            CADASTRO DE PÁGINAS
-          </Link>
-          <Link to="/savePartners" className="action-button">
-            <FaIdCardAlt className="action-button-icon" />
-            CADASTRO DE FUNCIONÁRIOS
-          </Link>
-          <Link to="/saveCatalog" className="action-button">
-            <FaImages className="action-button-icon" />
-            CADASTRO DE CATÁLOGOS
-          </Link>
-          <Link to="/saveDepoiment" className="action-button">
-            <FaRocketchat className="action-button-icon" />
-            CADASTRO DE DEPOIMENTOS
-          </Link>
-        </div>
-
-        <div className="grid-five">
-          <Link to="/home" className="action-button">
-            <FaHome className="action-button-icon" />
-            PÁGINA INCIAL
-          </Link>
-          <Link to="/listProducts" className="action-button">
-            <FaTshirt className="action-button-icon" />
-            LISTAGEM DE PRODUTOS
-          </Link>
-          <Link to="/listPartners" className="action-button">
-            <FaIdCardAlt className="action-button-icon" />
-            LISTAGEM DE FUNCIONÁRIOS
+          <Link to="/category" className="action-button">
+            <FaTags className="action-button-icon" />
+            CADASTRO DE CATEGORIAS
           </Link>
         </div>
       </div>

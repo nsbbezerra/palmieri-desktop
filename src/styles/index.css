@@ -33,7 +33,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(61, 61, 61);
   border-top: 1px solid #eee;
   overflow: hidden;
 }
@@ -54,12 +54,11 @@ code {
 
 .menu-app {
   width: 250px;
-  background-color: #fff;
+  background-color: #222;
   height: 100%;
   overflow: auto;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
   padding: 10px;
-  border-right: 1px solid #eee;
 }
 
 .content-app {
@@ -85,13 +84,13 @@ code {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 30px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #777;
   justify-content: center;
   align-items: center;
 }
 
 .border-on-top {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #777;
   padding-top: 20px;
 }
 
@@ -129,10 +128,10 @@ code {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 50px;
+  height: 35px;
   text-decoration: none;
   border-radius: 3px;
-  color: rgba(0, 0, 0, 0.75);
+  color: #ccc;
   font-size: 13px;
   font-weight: 600;
   padding-left: 15px;
@@ -141,8 +140,8 @@ code {
 
 .menu-link:hover {
   background-color: rgb(237, 186, 0);
-  border-left: 3px solid #000;
-  color: #000;
+  border-left: 3px solid #ccc;
+  color: #222;
 }
 
 .menu-link:active {
@@ -156,7 +155,7 @@ code {
   justify-content: flex-start;
   align-items: center;
   height: 60px;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   padding-left: 20px;
   padding-right: 20px;
   color: rgba(0, 0, 0, 0.75);
@@ -167,15 +166,15 @@ code {
 
 .header-component {
   width: 100%;
-  background-color: #fff;
+  background-color: #222;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
   padding-left: 20px;
   padding-right: 20px;
-  color: rgba(0, 0, 0, 0.75);
+  color: #eee;
   font-weight: 600;
   position: fixed;
   z-index: 5000;
@@ -241,17 +240,17 @@ code {
 
 .title-page {
   width: 100%;
-  background-color: #fff;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  background-color: #222;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   border-radius: 3px;
   padding-left: 20px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   height: 45px;
-  margin-top: 40px;
   font-size: 14px;
   font-weight: 500;
+  color: #eee;
 }
 
 .title-page-two {
@@ -328,7 +327,7 @@ code {
 .link-to-home {
   display: flex;
   font-size: 25px;
-  color: #2196f3;
+  color: rgb(237, 186, 0);
   transition: all 0.2s;
   margin-right: 220px;
 }
@@ -491,7 +490,7 @@ code {
 .label {
   line-height: 30px;
   display: block;
-  color: #444;
+  color: #eee;
   font-size: 15px;
   font-weight: 500;
 }
@@ -604,11 +603,12 @@ label#photoFile input {
 .container-info {
   width: 100%;
   border-radius: 3px;
-  background-color: #fff;
+  background-color: #222;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 10px;
   margin-top: 30px;
   margin-bottom: 20px;
+  color: #eee;
 }
 
 .title-container-info {
@@ -616,10 +616,10 @@ label#photoFile input {
   justify-content: flex-start;
   align-items: center;
   font-size: 15px;
-  color: #444;
+  color: #eee;
   font-weight: 600;
   padding: 5px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #777;
 }
 
 input[type="text"] {

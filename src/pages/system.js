@@ -61,7 +61,7 @@ export default function System() {
       </div>
 
       <div className="content-page">
-        <div className="title-page-two">
+        <div className="title-page">
           <div className="header-left">
             <FaServer style={{ marginRight: 20 }} />
             ROTA PARA SERVIDOR
@@ -92,7 +92,7 @@ export default function System() {
               />
             </div>
             <div>
-              <span className="label" style={{ color: "#fff" }}>
+              <span className="label" style={{ color: "#222" }}>
                 Porta
               </span>
               <button
