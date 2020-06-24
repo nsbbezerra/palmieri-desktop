@@ -90,7 +90,7 @@ code {
 }
 
 .border-on-top {
-  border-top: 1px solid #777;
+  border-top: 0.5px solid #777;
   padding-top: 20px;
 }
 
@@ -128,24 +128,30 @@ code {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 35px;
+  height: 40px;
   text-decoration: none;
+  border: 1px solid #333;
+  margin-bottom: 7px;
   border-radius: 3px;
   color: #ccc;
   font-size: 13px;
   font-weight: 600;
   padding-left: 15px;
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 .menu-link:hover {
   background-color: rgb(237, 186, 0);
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
   border-left: 3px solid #ccc;
   color: #222;
+  transform: scale(1.03);
 }
 
 .menu-link:active {
-  transform: scale(0.97);
+  transform: scale(1);
 }
 
 .header-component {
@@ -162,7 +168,7 @@ code {
   font-weight: 600;
   position: fixed !important;
   z-index: 5000;
-  border-left: 1px solid rgb(61, 61, 61);
+  border-left: 1px solid rgb(46, 46, 46);
 }
 
 .content-page {
@@ -189,9 +195,11 @@ code {
 
 .grid-five {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, minmax(200px, 200px));
   grid-gap: 15px;
   margin-top: 20px;
+  width: 100%;
+  justify-content: center;
 }
 
 .action-button {
@@ -364,7 +372,7 @@ code {
   color: #eee;
   font-weight: 600;
   padding: 5px;
-  border-bottom: 1px solid #777;
+  border-bottom: 0.5px solid #777;
 }
 
 input[type="text"] {
@@ -459,6 +467,13 @@ textarea {
   margin-top: 20px;
 }
 
+.products-grid-save {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  justify-items: center;
+}
+
 .card-category {
   width: 200px;
   max-width: 200px;
@@ -519,4 +534,120 @@ textarea {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
+}
+
+.grid-product-inputs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.title-card-product {
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #333;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.link-card-product {
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #555;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.label-info {
+  font-weight: 500;
+  font-size: 11px;
+  font-style: italic;
+  margin-left: 15px;
+  color: #f44336;
+}
+
+.title-page-two {
+  width: 100%;
+  background-color: #222;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #eee;
+}
+
+.select-container {
+  width: 400px;
+  margin-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.video-youtube {
+  border-radius: 3px;
+  border: 2px solid #777;
+  width: 550px;
+  height: 300px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+}
+
+label#xmlFile input {
+  display: none;
+}
+
+label#xmlFile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 3px;
+  color: #444;
+  height: 240px;
+  font-size: 15px;
+  border: 1.5px dashed #4caf50;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+label#xmlFile:hover {
+  transform: scale(1.03);
+}
+
+label#xmlFile:active {
+  transform: scale(1);
+}
+
+.remove-photo {
+  border: none;
+  background: none;
+  color: #f44336;
+  position: absolute;
+  margin-top: -105px;
+  font-size: 30px;
+  margin-left: 80px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.remove-photo:hover {
+  transform: scale(1.03);
+}
+
+.remove-photo:active {
+  transform: scale(1);
 }

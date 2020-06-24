@@ -1,17 +1,18 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import {
-  FaTags,
   FaHome,
-  FaInfoCircle,
+  FaTshirt,
   FaSave,
-  FaTimes,
+  FaInfoCircle,
   FaImages,
+  FaTimes,
 } from "react-icons/fa";
+import Select from "react-select";
 
-export default function Category() {
-  const [name, setName] = useState("CATEGORIA");
+export default function Catalog() {
   const [imgAlt, setImgAlt] = useState("");
+  const [products, setProducts] = useState([]);
   const [photo, setPhoto] = useState(null);
 
   const previewPhoto = useMemo(() => {
@@ -27,8 +28,8 @@ export default function Category() {
     <>
       <div className="header-component">
         <div className="header-left">
-          <FaTags style={{ marginRight: 20, fontSize: 20 }} />
-          CADASTRO DE CATEGORIAS
+          <FaImages style={{ marginRight: 20, fontSize: 20 }} />
+          CADASTRO DE CATÁLOGO
         </div>
         <div>
           <Link to="/" className="link-to-home">
@@ -38,6 +39,20 @@ export default function Category() {
       </div>
 
       <div className="content-page">
+        <div className="title-page-two">
+          <div className="header-left">
+            <FaTshirt style={{ marginRight: 20 }} />
+            SELECIONE O PRODUTO
+          </div>
+          <div className="select-container">
+            <Select
+              options={products}
+              placeholder="Selecione o Produto"
+              onChange={() => {}}
+              noOptionsMessage={() => <p>Nenhum produto cadastrado</p>}
+            />
+          </div>
+        </div>
         <div className="center-card">
           <div className="card-category">
             <div className="container-img-card-category">
@@ -68,39 +83,22 @@ export default function Category() {
                 </>
               )}
             </div>
-            <span className="title-card-category">{name}</span>
-            <span className="link-card-category">VEJA MAIS</span>
           </div>
         </div>
 
         <div className="container-info">
           <span className="title-container-info">
             <FaInfoCircle style={{ marginRight: 15 }} />
-            INFORMAÇÕES DA CATEGORIA
+            INFORMAÇÕES DO CATÁLOGO
           </span>
-          <div className="grid-category">
-            <div>
-              <span className="label">
-                Nome da Categoria
-                <span className="label-info">Máx. 23 caracteres</span>
-              </span>
-              <input
-                type="text"
-                className="input-text"
-                onChange={(e) => setName(e.target.value.toUpperCase())}
-                value={name}
-                maxLength={23}
-              />
-            </div>
-            <div>
-              <span className="label">Descrição para a Imagem</span>
-              <input
-                type="text"
-                className="input-text"
-                onChange={(e) => setImgAlt(e.target.value)}
-                value={imgAlt}
-              />
-            </div>
+          <div>
+            <span className="label">Descrição para a Imagem</span>
+            <input
+              type="text"
+              className="input-text"
+              onChange={(e) => setImgAlt(e.target.value)}
+              value={imgAlt}
+            />
           </div>
           <hr className="divider" />
           <div className="container-buttons">
