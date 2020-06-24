@@ -121,13 +121,13 @@ export default function Index() {
             <FaTags className="action-button-icon" />
             LISTAGEM DE CATEGORIAS
           </Link>
-          <Link to="/product" className="action-button">
+          <Link to="/listProduct" className="action-button">
             <FaTshirt className="action-button-icon" />
-            CADASTRO DE PRODUTOS
+            LISTAGEM DE PRODUTOS
           </Link>
-          <Link to="/catalog" className="action-button">
+          <Link to="/listCatalog" className="action-button">
             <FaImages className="action-button-icon" />
-            CADASTRO DE CATÁLOGO
+            LISTAGEM DE CATÁLOGO
           </Link>
         </div>
       </div>

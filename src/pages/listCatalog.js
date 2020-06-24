@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaTags, FaHome, FaTimes, FaEdit } from "react-icons/fa";
+import { FaImages, FaHome, FaTimes, FaTshirt } from "react-icons/fa";
+import Select from "react-select";
 
 import tshirt from "../assets/camisa-one-web.png";
 
-export default function ListCategory() {
+export default function ListCatalog() {
+  const [products, setProducts] = useState([]);
   return (
     <>
       <div className="header-component">
         <div className="header-left">
-          <FaTags style={{ marginRight: 20, fontSize: 20 }} />
-          LISTAGEM DE CATEGORIAS
+          <FaImages style={{ marginRight: 20, fontSize: 20 }} />
+          LISTAGEM DE CATÁLOGO
         </div>
         <div>
           <Link to="/" className="link-to-home">
@@ -19,6 +21,20 @@ export default function ListCategory() {
         </div>
       </div>
       <div className="content-page">
+        <div className="title-page-two">
+          <div className="header-left">
+            <FaTshirt style={{ marginRight: 20 }} />
+            SELECIONE O PRODUTO
+          </div>
+          <div className="select-container">
+            <Select
+              options={products}
+              placeholder="Selecione o Produto"
+              onChange={() => {}}
+              noOptionsMessage={() => <p>Nenhum produto Cadastrado</p>}
+            />
+          </div>
+        </div>
         <div className="grid-list-category">
           <div className="container-card-list">
             <div className="card-category">
@@ -29,17 +45,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -52,17 +62,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -75,17 +79,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -98,17 +96,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -121,17 +113,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -144,17 +130,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -167,17 +147,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -190,17 +164,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -213,17 +181,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>
@@ -236,17 +198,11 @@ export default function ListCategory() {
                   className="card-category-img"
                 />
               </div>
-              <span className="title-card-category">CAMISETA ESPORTIVA</span>
-              <span className="link-card-category">VEJA MAIS</span>
             </div>
-            <div className="container-button-card">
-              <button onClick={() => {}} type="button" className="btn-blue">
-                <FaEdit />
-                <span className="btn-text">Editar</span>
-              </button>
+            <div className="container-button-card-catalog">
               <button onClick={() => {}} type="button" className="btn-red">
                 <FaTimes />
-                <span className="btn-text">Excluir</span>
+                <span className="btn-text">Excluir Item</span>
               </button>
             </div>
           </div>

@@ -8,6 +8,8 @@ import Product from "../pages/products";
 import Catalog from "../pages/catalog";
 
 import ListCategory from "../pages/listCategory";
+import ListProduct from "../pages/listProduct";
+import ListCatalog from "../pages/listCatalog";
 
 export default function RoutesApp() {
   return (
@@ -29,6 +31,12 @@ export default function RoutesApp() {
       </Route>
       <Route path="/listCategory">
         <ListCategory />
+      </Route>
+      <Route path="/listProduct">
+        <ListProduct />
+      </Route>
+      <Route path="/listCatalog">
+        <ListCatalog />
       </Route>
     </Switch>
   );

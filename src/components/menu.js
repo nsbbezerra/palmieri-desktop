@@ -40,6 +40,18 @@ export default function Menu() {
             CATEGORIAS
           </Link>
         </li>
+        <li className="menu-item">
+          <Link to="/listProduct" className="menu-link">
+            <FaTshirt style={{ marginRight: 15 }} />
+            PRODUTOS
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link to="/listCatalog" className="menu-link">
+            <FaImages style={{ marginRight: 15 }} />
+            CATÁLOGO
+          </Link>
+        </li>
       </ul>
     </>
   );
