@@ -61,7 +61,7 @@ export default function Catalog() {
                   <img
                     alt="card category"
                     src={previewPhoto}
-                    className="card-category-img"
+                    className="card-catalog-img"
                   />
                   <button
                     onClick={() => removePhoto()}

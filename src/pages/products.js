@@ -61,14 +61,14 @@ export default function Products() {
         <div className="products-grid-save">
           <div>
             <span className="label">CARD</span>
-            <div className="card-category">
+            <div className="card-product">
               <div className="container-img-card-category">
                 {photo ? (
                   <>
                     <img
                       alt="card category"
                       src={previewPhoto}
-                      className="card-category-img"
+                      className="card-product-img"
                     />
                     <button
                       onClick={() => removePhoto()}

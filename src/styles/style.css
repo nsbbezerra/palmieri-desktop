@@ -533,9 +533,20 @@ textarea {
 }
 
 .card-category {
-  width: 200px;
-  max-width: 200px;
-  min-width: 200px;
+  width: 250px;
+  max-width: 250px;
+  min-width: 250px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  background-color: #fcfcfc;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-product {
+  width: 280px;
+  max-width: 280px;
+  min-width: 280px;
   border-radius: 4px;
   transition: all 0.3s;
   background-color: #fcfcfc;
@@ -544,7 +555,18 @@ textarea {
 }
 
 .card-category-img {
-  width: 90%;
+  padding: 7px;
+  max-height: 100%;
+}
+
+.card-product-img {
+  padding: 7px;
+  max-height: 100%;
+}
+
+.card-catalog-img {
+  padding: 7px;
+  height: 250px;
 }
 
 .container-img-card-category {
@@ -603,7 +625,7 @@ textarea {
 
 .title-card-product {
   font-family: "Saira Extra Condensed", sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
   color: #333;
   width: 100%;
@@ -613,7 +635,7 @@ textarea {
 
 .link-card-product {
   font-family: "Saira Extra Condensed", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
   color: #555;
   width: 100%;
@@ -713,7 +735,17 @@ label#xmlFile:active {
 .grid-list-category {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+  grid-gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.grid-list-product {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
   grid-gap: 30px;
   justify-content: center;
   margin-top: 20px;
