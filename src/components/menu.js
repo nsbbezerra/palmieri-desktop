@@ -11,19 +11,19 @@ export default function Menu() {
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <Link to="/category" className="menu-link">
+          <Link to="/category" className="menu-link" draggable={false}>
             <FaTags style={{ marginRight: 15 }} />
             CATEGORIAS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/product" className="menu-link">
+          <Link to="/product" className="menu-link" draggable={false}>
             <FaTshirt style={{ marginRight: 15 }} />
             PRODUTOS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/catalog" className="menu-link">
+          <Link to="/catalog" className="menu-link" draggable={false}>
             <FaImages style={{ marginRight: 15 }} />
             CATÁLOGO
           </Link>
@@ -35,19 +35,19 @@ export default function Menu() {
       </div>
       <ul className="menu">
         <li className="menu-item">
-          <Link to="/listCategory" className="menu-link">
+          <Link to="/listCategory" className="menu-link" draggable={false}>
             <FaTags style={{ marginRight: 15 }} />
             CATEGORIAS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/listProduct" className="menu-link">
+          <Link to="/listProduct" className="menu-link" draggable={false}>
             <FaTshirt style={{ marginRight: 15 }} />
             PRODUTOS
           </Link>
         </li>
         <li className="menu-item">
-          <Link to="/listCatalog" className="menu-link">
+          <Link to="/listCatalog" className="menu-link" draggable={false}>
             <FaImages style={{ marginRight: 15 }} />
             CATÁLOGO
           </Link>

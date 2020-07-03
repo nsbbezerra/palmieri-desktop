@@ -22,9 +22,6 @@ export default function Index() {
   const [port, setPort] = useState("");
   const [success, setSuccess] = useState(false);
   const [erro, setErro] = useState(false);
-  const [erroModal, setErroModal] = useState(false);
-  const [messageErro, setErroMessage] = useState("");
-  const [erroStatus, setErroStatus] = useState("");
 
   const defaultOptions = {
     loop: true,
@@ -237,54 +234,6 @@ export default function Index() {
               </span>
               <span className="btn-text">Salvar</span>
             </button>
-          </div>
-        </div>
-      </Modal>
-
-      <Modal
-        isOpen={erroModal}
-        contentLabel="Rota para a API"
-        onRequestClose={() => setErroModal(false)}
-        className="modal"
-        overlayClassName="overlay"
-        ariaHideApp={false}
-      >
-        <div className="modal-container">
-          <div className="modal-header">
-            <span>Conexão com Servidor</span>
-            <button
-              className="btn-close-modal"
-              onClick={() => {
-                setErroModal(false);
-              }}
-            >
-              <FaTimes />
-            </button>
-          </div>
-          <div className="modal-content">
-            <Lottie options={errorOptions} width={"40%"} />
-            <p
-              style={{
-                fontWeight: "700",
-                width: "100%",
-                textAlign: "center",
-                fontSize: 16,
-                color: "#f44336",
-              }}
-            >
-              {erroStatus}
-            </p>
-            <p
-              style={{
-                fontWeight: "400",
-                width: "100%",
-                textAlign: "center",
-                fontSize: 14,
-                color: "#333",
-              }}
-            >
-              <strong>Erro:</strong> {messageErro}
-            </p>
           </div>
         </div>
       </Modal>

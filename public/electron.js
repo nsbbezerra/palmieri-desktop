@@ -13,10 +13,9 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1300,
     height: 700,
+    center: true,
     webPreferences: {
-      nativeWindowOpen: true,
       nodeIntegration: true,
-      plugins: true,
     },
     icon: iconPath,
   });
@@ -25,9 +24,7 @@ function createWindow() {
       ? "http://localhost:3000"
       : `file://${path.join(__dirname, "../build/index.html")}`
   );
-  mainWindow.setMenuBarVisibility(false);
-  mainWindow.setResizable(true);
-  mainWindow.removeMenu();
+  mainWindow.webContents.openDevTools();
   mainWindow.on("closed", () => (mainWindow = null));
 }
 

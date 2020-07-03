@@ -12,8 +12,18 @@ function App() {
       <div className="container-app">
         <div className="menu-app">
           <div className="container-logo">
-            <img src={icone} className="icone-menu-app" alt="logo" />
-            <img src={logo} className="logo-menu-app" alt="logo" />
+            <img
+              src={icone}
+              className="icone-menu-app"
+              alt="logo"
+              draggable={false}
+            />
+            <img
+              src={logo}
+              className="logo-menu-app"
+              alt="logo"
+              draggable={false}
+            />
           </div>
           <Menu />
         </div>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   FaHome,
@@ -11,22 +11,194 @@ import {
 } from "react-icons/fa";
 import Select from "react-select";
 
+import api from "../configs/axios";
+import Modal from "react-modal";
+import Lottie from "react-lottie";
+
+import successData from "../animations/success.json";
+import errorData from "../animations/error.json";
+import loadingData from "../animations/loading.json";
+
 export default function Products() {
-  const [name, setName] = useState("CATEGORIA");
+  const [name, setName] = useState("NOME");
   const [description, setDescription] = useState("DESCRIÇÃO");
   const [imgAlt, setImgAlt] = useState("");
   const [slug, setSlug] = useState("");
   const [products, setProducts] = useState([]);
   const [video, setVideo] = useState("");
   const [photo, setPhoto] = useState(null);
+  const [idCategory, setIdCategory] = useState("");
+  const [categoryName, setCategoryName] = useState({});
+
+  const [erroModal, setErroModal] = useState(false);
+  const [loadingModal, setLoadingModal] = useState(false);
+  const [messageErro, setErroMessage] = useState("");
+  const [erroStatus, setErroStatus] = useState("");
+  const [typeModal, setTypeModal] = useState("success");
 
   const previewPhoto = useMemo(() => {
     return photo ? URL.createObjectURL(photo) : null;
   }, [photo]);
 
+  const colorStyles = {
+    option: (styles) => ({ ...styles, color: "#444" }),
+  };
+
+  const successOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: successData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const errorOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: errorData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const loadingOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: loadingData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   async function removePhoto() {
     await URL.revokeObjectURL(photo);
     setPhoto(null);
+  }
+
+  useEffect(() => {
+    admin();
+  }, []);
+
+  async function admin() {
+    setLoadingModal(true);
+    await api
+      .get("/findCategories")
+      .then((response) => {
+        setProducts(response.data.categories);
+        setLoadingModal(false);
+      })
+      .catch((error) => {
+        setLoadingModal(false);
+        if (error.message === "Network Error") {
+          setErroMessage("Sem conexão com o servidor");
+          setErroStatus("Erro de conexão");
+          setTypeModal("erro");
+          setErroModal(true);
+          return false;
+        }
+        setErroMessage(error.response.data.message.message);
+        setErroStatus(error.response.data.message.type);
+        setTypeModal("erro");
+        setErroModal(true);
+      });
+  }
+
+  function handleCategory(id) {
+    setIdCategory(id.value);
+    setCategoryName(id);
+  }
+
+  async function saveProduct() {
+    if (idCategory === "") {
+      setErroMessage("Escolha uma categoria para o produto");
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
+    if (name === "NOME" || name === "") {
+      setErroMessage("Escolha um nome para o produto");
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
+    if (description === "DESCRIÇÃO" || description === "") {
+      setErroMessage("Escolha uma descrição para o produto");
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
+    if (video === "") {
+      setErroMessage("Escolha um vídeo para o produto");
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
+    if (imgAlt === "") {
+      setErroMessage("Escolha uma descrição para a imagem do produto");
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
+    if (slug === "") {
+      setErroMessage("Escolha um slug para o produto");
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
+    if (photo === null) {
+      setErroMessage("Escolha uma imagem para o produto");
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
+    setLoadingModal(true);
+    let data = new FormData();
+    data.append("thumbnail", photo);
+    data.append("name", name);
+    data.append("category", idCategory);
+    data.append("description", description);
+    data.append("slug", slug);
+    data.append("video", video);
+    data.append("imageDescription", imgAlt);
+    await api
+      .post("/products", data)
+      .then((response) => {
+        setLoadingModal(false);
+        setErroStatus(response.data.message);
+        setTypeModal("success");
+        setErroModal(true);
+        setPhoto(null);
+        setName("NOME");
+        setDescription("DESCRIÇÃO");
+        setCategoryName("");
+        setIdCategory("");
+        setSlug("");
+        setVideo("");
+        setImgAlt("");
+        removePhoto();
+      })
+      .catch((error) => {
+        setLoadingModal(false);
+        if (error.message === "Network Error") {
+          setErroMessage("Sem conexão com o servidor");
+          setErroStatus("Erro de conexão");
+          setTypeModal("erro");
+          setErroModal(true);
+          return false;
+        }
+        setErroMessage(error.response.data.message.message);
+        setErroStatus(error.response.data.message.type);
+        setTypeModal("erro");
+        setErroModal(true);
+      });
   }
 
   return (
@@ -51,10 +223,12 @@ export default function Products() {
           </div>
           <div className="select-container">
             <Select
+              value={categoryName}
               options={products}
               placeholder="Selecione a Categoria"
-              onChange={() => {}}
+              onChange={(value) => handleCategory(value)}
               noOptionsMessage={() => <p>Nenhuma categoria cadastrada</p>}
+              styles={colorStyles}
             />
           </div>
         </div>
@@ -170,7 +344,11 @@ export default function Products() {
           </div>
           <hr className="divider" />
           <div className="container-buttons">
-            <button onClick={() => {}} type="button" className="btn-primary">
+            <button
+              onClick={() => saveProduct()}
+              type="button"
+              className="btn-primary"
+            >
               <span className="btn-label">
                 <FaSave />
               </span>
@@ -179,6 +357,83 @@ export default function Products() {
           </div>
         </div>
       </div>
+
+      <Modal
+        isOpen={erroModal}
+        contentLabel="Rota para a API"
+        onRequestClose={() => setErroModal(false)}
+        className="modal"
+        overlayClassName="overlay"
+        ariaHideApp={false}
+      >
+        <div className="modal-container">
+          <div className="modal-header">
+            <span>Informação</span>
+            <button
+              className="btn-close-modal"
+              onClick={() => {
+                setErroModal(false);
+              }}
+            >
+              <FaTimes />
+            </button>
+          </div>
+          <div className="modal-content">
+            <Lottie
+              options={typeModal === "erro" ? errorOptions : successOptions}
+              width={"40%"}
+            />
+            {typeModal === "erro" ? (
+              <p
+                style={{
+                  fontWeight: "700",
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: 16,
+                  color: "#f44336",
+                }}
+              >
+                {erroStatus}
+              </p>
+            ) : (
+              <p
+                style={{
+                  fontWeight: "700",
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: 16,
+                  color: "#4caf50",
+                }}
+              >
+                {erroStatus}
+              </p>
+            )}
+            {typeModal === "erro" && (
+              <p
+                style={{
+                  fontWeight: "400",
+                  width: "100%",
+                  textAlign: "center",
+                  fontSize: 14,
+                  color: "#ddd",
+                }}
+              >
+                <strong>Erro:</strong> {messageErro}
+              </p>
+            )}
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={loadingModal}
+        contentLabel="Rota para a API"
+        className="modal"
+        overlayClassName="overlay"
+        ariaHideApp={false}
+      >
+        <Lottie options={loadingOptions} width={"80%"} />
+      </Modal>
     </>
   );
 }
