@@ -182,6 +182,7 @@ export default function Catalog() {
           <div className="select-container">
             <Select
               options={products}
+              value={productName}
               placeholder="Selecione o Produto"
               onChange={(value) => handleProduct(value)}
               noOptionsMessage={() => <p>Nenhum produto cadastrado</p>}

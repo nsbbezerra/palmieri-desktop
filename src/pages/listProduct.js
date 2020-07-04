@@ -19,13 +19,10 @@ import api from "../configs/axios";
 
 import successData from "../animations/success.json";
 import errorData from "../animations/error.json";
-import tshirt from "../assets/camisa-one-web.png";
 import loadingData from "../animations/loading.json";
 
 export default function ListProduct() {
   const [products, setProducts] = useState([]);
-  const [success, setSuccess] = useState(false);
-  const [erro, setErro] = useState(false);
   const [erroModal, setErroModal] = useState(false);
   const [messageErro, setErroMessage] = useState("");
   const [erroStatus, setErroStatus] = useState("");
@@ -131,7 +128,6 @@ export default function ListProduct() {
         setAllProducts(response.data.products);
         setUrlImage(response.data.urlImage);
         setLoadingModal(false);
-        console.log(response);
       })
       .catch((error) => {
         setLoadingModal(false);
@@ -316,6 +312,7 @@ export default function ListProduct() {
           <div className="select-container">
             <Select
               options={products}
+              value={categoryName}
               placeholder="Selecione a Categoria"
               onChange={(value) => handleCategory(value)}
               noOptionsMessage={() => <p>Nenhuma categoria cadastrada</p>}

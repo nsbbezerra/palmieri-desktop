@@ -17,8 +17,6 @@ import successData from "../animations/success.json";
 import errorData from "../animations/error.json";
 import loadingData from "../animations/loading.json";
 
-import tshirt from "../assets/camisa-one-web.png";
-
 export default function ListCatalog() {
   const [products, setProducts] = useState([]);
 
@@ -175,6 +173,7 @@ export default function ListCatalog() {
           <div className="select-container">
             <Select
               options={products}
+              value={productName}
               placeholder="Selecione o Produto"
               onChange={(value) => handleSearch(value)}
               noOptionsMessage={() => <p>Nenhum produto Cadastrado</p>}
