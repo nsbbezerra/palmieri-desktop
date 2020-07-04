@@ -138,6 +138,15 @@ export default function Products() {
       setErroModal(true);
       return false;
     }
+    if (!video.includes("embed")) {
+      setErroMessage(
+        "Url do vídeo inválida, substitua o /watch?v= por /embed/"
+      );
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
     if (imgAlt === "") {
       setErroMessage("Escolha uma descrição para a imagem do produto");
       setErroStatus("Erro de validação");
