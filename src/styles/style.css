@@ -194,7 +194,7 @@ code {
 
 .grid-five {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 200px));
+  grid-template-columns: repeat(4, minmax(200px, 200px));
   grid-gap: 15px;
   margin-top: 20px;
   width: 100%;
@@ -707,36 +707,6 @@ textarea {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
 }
 
-label#xmlFile input {
-  display: none;
-}
-
-label#xmlFile {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-  border-radius: 3px;
-  color: #444;
-  height: 240px;
-  font-size: 15px;
-  border: 1.5px dashed #4caf50;
-  text-align: center;
-  transition: all 0.3s;
-}
-
-label#xmlFile:hover {
-  transform: scale(1.03);
-}
-
-label#xmlFile:active {
-  transform: scale(1);
-}
-
 .remove-photo {
   border: none;
   background: none;
@@ -747,6 +717,18 @@ label#xmlFile:active {
   margin-left: 80px;
   cursor: pointer;
   transition: all 0.3s;
+}
+
+.remove-avatar {
+  border: none;
+  background: none;
+  color: #f44336;
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 60px;
+  margin-left: 65px;
 }
 
 .remove-photo:hover {
@@ -849,4 +831,119 @@ label#xmlFile:active {
 .hover-red:hover {
   color: #e9180a;
   transition: all 0.3s;
+}
+
+.depoiment-container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-comments {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  grid-gap: 30px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.depoiment-content {
+  width: 300px;
+  max-width: 300px;
+  height: 180px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  text-overflow: ellipsis;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  word-wrap: break-word;
+}
+
+.depoiment-avatar {
+  width: 100px;
+  height: 100px;
+  border: 4px solid #edba00;
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  margin-top: -65px;
+  background-color: #fff;
+}
+
+.author {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: "Saira Extra Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  font-style: normal;
+  color: #fcfcfc;
+}
+
+label#xmlFile input {
+  display: none;
+}
+
+label#xmlFile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 3px;
+  color: #444;
+  height: 240px;
+  font-size: 15px;
+  border: 1.5px dashed #4caf50;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+label#xmlAvatar:hover {
+  transform: scale(1.03);
+}
+
+label#xmlAvatar:active {
+  transform: scale(1);
+}
+
+label#xmlAvatar input {
+  display: none;
+}
+
+label#xmlAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  margin-top: -65px;
+  border: 4px dashed #4caf50;
+  text-align: center;
+  transition: all 0.3s;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+label#xmlAvatar:hover {
+  transform: scale(1.03);
+}
+
+label#xmlAvatar:active {
+  transform: scale(1);
 }

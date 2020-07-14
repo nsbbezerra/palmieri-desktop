@@ -8,6 +8,7 @@ import {
   FaTags,
   FaTshirt,
   FaImages,
+  FaComments,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
@@ -111,6 +112,10 @@ export default function Index() {
             <FaImages className="action-button-icon" />
             CADASTRO DE CATÁLOGO
           </Link>
+          <Link to="/comments" className="action-button">
+            <FaComments className="action-button-icon" />
+            CADASTRO DE COMENTÁRIOS
+          </Link>
         </div>
 
         <div className="grid-five">
@@ -125,6 +130,10 @@ export default function Index() {
           <Link to="/listCatalog" className="action-button">
             <FaImages className="action-button-icon" />
             LISTAGEM DE CATÁLOGO
+          </Link>
+          <Link to="/listComments" className="action-button">
+            <FaComments className="action-button-icon" />
+            LISTAGEM DE COMENTÁRIOS
           </Link>
         </div>
       </div>

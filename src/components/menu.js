@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaSave, FaListUl, FaTshirt, FaImages, FaTags } from "react-icons/fa";
+import {
+  FaSave,
+  FaListUl,
+  FaTshirt,
+  FaImages,
+  FaTags,
+  FaComments,
+} from "react-icons/fa";
 
 export default function Menu() {
   return (
@@ -28,6 +35,12 @@ export default function Menu() {
             CATÁLOGO
           </Link>
         </li>
+        <li className="menu-item">
+          <Link to="/comments" className="menu-link" draggable={false}>
+            <FaComments style={{ marginRight: 15 }} />
+            COMENTÁRIOS
+          </Link>
+        </li>
       </ul>
       <div className="menu-title border-on-top">
         <FaListUl style={{ marginRight: 10 }} />
@@ -50,6 +63,12 @@ export default function Menu() {
           <Link to="/listCatalog" className="menu-link" draggable={false}>
             <FaImages style={{ marginRight: 15 }} />
             CATÁLOGO
+          </Link>
+        </li>
+        <li className="menu-item">
+          <Link to="/listComments" className="menu-link" draggable={false}>
+            <FaComments style={{ marginRight: 15 }} />
+            COMENTÁRIOS
           </Link>
         </li>
       </ul>

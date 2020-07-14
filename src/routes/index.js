@@ -6,10 +6,12 @@ import System from "../pages/system";
 import Category from "../pages/category";
 import Product from "../pages/products";
 import Catalog from "../pages/catalog";
+import Comments from "../pages/comments";
 
 import ListCategory from "../pages/listCategory";
 import ListProduct from "../pages/listProduct";
 import ListCatalog from "../pages/listCatalog";
+import ListComments from "../pages/listComments";
 
 export default function RoutesApp() {
   return (
@@ -29,6 +31,9 @@ export default function RoutesApp() {
       <Route path="/catalog">
         <Catalog />
       </Route>
+      <Route path="/comments">
+        <Comments />
+      </Route>
       <Route path="/listCategory">
         <ListCategory />
       </Route>
@@ -37,6 +42,9 @@ export default function RoutesApp() {
       </Route>
       <Route path="/listCatalog">
         <ListCatalog />
+      </Route>
+      <Route path="/listComments">
+        <ListComments />
       </Route>
     </Switch>
   );
