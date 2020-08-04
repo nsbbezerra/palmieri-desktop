@@ -947,3 +947,102 @@ label#xmlAvatar:hover {
 label#xmlAvatar:active {
   transform: scale(1);
 }
+
+label#xmlModel input {
+  display: none;
+}
+
+label#xmlModel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  border: 2px dashed #4caf50;
+  text-align: center;
+  transition: all 0.3s;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+label#xmlModel:hover {
+  transform: scale(1.03);
+}
+
+label#xmlModel:active {
+  transform: scale(1);
+}
+
+.medida-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  grid-gap: 25px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.medida-item {
+  background: #f1f1f1;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 4px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.medida-img {
+  height: 100px;
+}
+
+.title-medida-product {
+  font-family: "Saira Extra Condensed", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+
+.desc-medida-product {
+  font-family: "Saira Extra Condensed", sans-serif !important;
+  font-size: 16px !important;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.medida-table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 380px));
+  grid-gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+  justify-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.medida-grid-table-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.image-table {
+  width: 100%;
+  max-width: 100%;
+}
+
+.container-buttons-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: max-content;
+}
