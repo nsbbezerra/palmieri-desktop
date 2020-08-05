@@ -7,6 +7,7 @@ import {
   FaImages,
   FaTags,
   FaComments,
+  FaRulerHorizontal,
 } from "react-icons/fa";
 
 export default function Menu() {
@@ -69,6 +70,18 @@ export default function Menu() {
           <Link to="/listComments" className="menu-link" draggable={false}>
             <FaComments style={{ marginRight: 15 }} />
             COMENTÁRIOS
+          </Link>
+        </li>
+      </ul>
+      <div className="menu-title border-on-top">
+        <FaRulerHorizontal style={{ marginRight: 10 }} />
+        MODELAGEM
+      </div>
+      <ul className="menu">
+        <li className="menu-item">
+          <Link to="/modelagem" className="menu-link" draggable={false}>
+            <FaRulerHorizontal style={{ marginRight: 15 }} />
+            MODELAGENS
           </Link>
         </li>
       </ul>

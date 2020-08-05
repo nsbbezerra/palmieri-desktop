@@ -13,6 +13,8 @@ import ListProduct from "../pages/listProduct";
 import ListCatalog from "../pages/listCatalog";
 import ListComments from "../pages/listComments";
 
+import Modelagem from "../pages/modelagem";
+
 export default function RoutesApp() {
   return (
     <Switch>
@@ -45,6 +47,9 @@ export default function RoutesApp() {
       </Route>
       <Route path="/listComments">
         <ListComments />
+      </Route>
+      <Route path="/modelagem">
+        <Modelagem />
       </Route>
     </Switch>
   );

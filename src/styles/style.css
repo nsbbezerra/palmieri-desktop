@@ -42,6 +42,10 @@ code {
     monospace;
 }
 
+.container-card-list {
+  width: 100%;
+}
+
 .container-app {
   width: 100vw;
   height: 100vh;
@@ -558,9 +562,7 @@ textarea {
 }
 
 .card-category {
-  width: 250px;
-  max-width: 250px;
-  min-width: 250px;
+  width: 280px;
   border-radius: 4px;
   transition: all 0.3s;
   background-color: #fcfcfc;
@@ -580,8 +582,7 @@ textarea {
 }
 
 .card-category-img {
-  padding: 7px;
-  max-height: 100%;
+  max-width: 100%;
 }
 
 .card-product-img {
@@ -590,8 +591,7 @@ textarea {
 }
 
 .card-catalog-img {
-  padding: 7px;
-  height: 250px;
+  max-width: 100%;
 }
 
 .container-img-card-category {
@@ -599,6 +599,7 @@ textarea {
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 100%;
   height: 250px;
   margin-bottom: -5px;
   padding: 5px;
@@ -742,7 +743,7 @@ textarea {
 .grid-list-category {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
   grid-gap: 30px;
   justify-content: center;
   margin-top: 20px;

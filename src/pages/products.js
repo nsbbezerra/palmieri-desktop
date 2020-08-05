@@ -33,13 +33,6 @@ export default function Products() {
   const [table, setTable] = useState(null);
   const [idCategory, setIdCategory] = useState("");
   const [categoryName, setCategoryName] = useState({});
-  const [idProduct, setIdProduct] = useState("");
-  const [titleModel, setTitleModel] = useState("TÍTULO");
-  const [descModel, setDescModel] = useState("DESCRIÇÃO");
-  const [urlPhoto, setUrlPhoto] = useState("");
-
-  const [models, setModels] = useState([]);
-  const [tables, setTables] = useState([]);
 
   const [erroModal, setErroModal] = useState(false);
   const [loadingModal, setLoadingModal] = useState(false);
@@ -62,27 +55,6 @@ export default function Products() {
   const colorStyles = {
     option: (styles) => ({ ...styles, color: "#444" }),
   };
-
-  function allClear() {
-    setPhoto(null);
-    setName("NOME");
-    setDescription("DESCRIÇÃO");
-    setCategoryName("");
-    setIdCategory("");
-    setSlug("");
-    setVideo("");
-    setImgAlt("");
-    removePhoto();
-    setIdProduct("");
-    setTable(null);
-    removeTable();
-    setModel(null);
-    removeModel();
-    setTitleModel("TÍTULO");
-    setDescModel("DESCRIÇÃO");
-    setCategoryName({});
-    setIdCategory("");
-  }
 
   const successOptions = {
     loop: false,
@@ -114,16 +86,6 @@ export default function Products() {
   async function removePhoto() {
     await URL.revokeObjectURL(photo);
     setPhoto(null);
-  }
-
-  async function removeModel() {
-    await URL.revokeObjectURL(model);
-    setModel(null);
-  }
-
-  async function removeTable() {
-    await URL.revokeObjectURL(table);
-    setTable(null);
   }
 
   useEffect(() => {
@@ -227,7 +189,6 @@ export default function Products() {
       .then((response) => {
         setLoadingModal(false);
         setErroStatus("Produto cadastrado com sucesso!");
-        setIdProduct(response.data);
         setTypeModal("success");
         setErroModal(true);
         setPhoto(null);
@@ -239,103 +200,6 @@ export default function Products() {
         setVideo("");
         setImgAlt("");
         removePhoto();
-      })
-      .catch((error) => {
-        setLoadingModal(false);
-        if (error.message === "Network Error") {
-          setErroMessage("Sem conexão com o servidor");
-          setErroStatus("Erro de conexão");
-          setTypeModal("erro");
-          setErroModal(true);
-          return false;
-        }
-        setErroMessage(error.response.data.message.message);
-        setErroStatus(error.response.data.message.type);
-        setTypeModal("erro");
-        setErroModal(true);
-      });
-  }
-
-  async function saveModel() {
-    setLoadingModal(true);
-    if (titleModel === "TÍTULO" || titleModel === "") {
-      setErroMessage("Escolha um título para a modelagem do produto");
-      setErroStatus("Erro de validação");
-      setTypeModal("erro");
-      setErroModal(true);
-      return false;
-    }
-    if (descModel === "DESCRIÇÃO" || descModel === "") {
-      setErroMessage("Escolha uma descrição para a modelagem do produto");
-      setErroStatus("Erro de validação");
-      setTypeModal("erro");
-      setErroModal(true);
-      return false;
-    }
-    if (model === null) {
-      setErroMessage("Escolha uma imagem para a modelagem do produto");
-      setErroStatus("Erro de validação");
-      setTypeModal("erro");
-      setErroModal(true);
-      return false;
-    }
-    let data = new FormData();
-    data.append("desc", descModel);
-    data.append("title", titleModel);
-    data.append("models", model);
-    await api
-      .post(`/saveModels/${idProduct}`, data)
-      .then((response) => {
-        setModels(response.data.models.models);
-        setUrlPhoto(response.data.urlImage);
-        setLoadingModal(false);
-        setErroStatus("Modelagem cadastrada com sucesso!");
-        setTypeModal("success");
-        setErroModal(true);
-        setDescModel("DESCRIÇÃO");
-        setTitleModel("TÍTULO");
-        setModel(null);
-        removeModel();
-      })
-      .catch((error) => {
-        setLoadingModal(false);
-        if (error.message === "Network Error") {
-          setErroMessage("Sem conexão com o servidor");
-          setErroStatus("Erro de conexão");
-          setTypeModal("erro");
-          setErroModal(true);
-          return false;
-        }
-        setErroMessage(error.response.data.message.message);
-        setErroStatus(error.response.data.message.type);
-        setTypeModal("erro");
-        setErroModal(true);
-      });
-  }
-
-  async function saveTable() {
-    setLoadingModal(true);
-    if (table === null) {
-      setErroMessage("Escolha uma imagem para a tabela de tamanhos do produto");
-      setErroStatus("Erro de validação");
-      setTypeModal("erro");
-      setErroModal(true);
-      return false;
-    }
-    let data = new FormData();
-    data.append("tables", table);
-    await api
-      .post(`/saveTables/${idProduct}`, data)
-      .then((response) => {
-        setUrlPhoto(response.data.urlImage);
-        setTables(response.data.tables.table);
-        setLoadingModal(false);
-        setErroStatus("Tabela cadastrada com sucesso!");
-        setIdProduct(response.data);
-        setTypeModal("success");
-        setErroModal(true);
-        setTable(null);
-        removeTable();
       })
       .catch((error) => {
         setLoadingModal(false);
@@ -384,301 +248,130 @@ export default function Products() {
             />
           </div>
         </div>
-        {idProduct === "" ? (
-          <>
-            <div className="products-grid-save">
-              <div>
-                <span className="label">CARD</span>
-                <div className="card-product">
-                  <div className="container-img-card-category">
-                    {photo ? (
-                      <>
-                        <img
-                          alt="card category"
-                          src={previewPhoto}
-                          className="card-product-img"
-                        />
-                        <button
-                          onClick={() => removePhoto()}
-                          className="remove-photo"
-                        >
-                          <FaTimes />
-                        </button>
-                      </>
-                    ) : (
-                      <>
-                        <label id="xmlFile">
-                          <input
-                            type="file"
-                            onChange={(event) =>
-                              setPhoto(event.target.files[0])
-                            }
-                          />
-                          <FaImages
-                            style={{ fontSize: 50, marginBottom: 20 }}
-                          />
-                          Clique aqui para adicionar uma imagem ao produto
-                        </label>
-                      </>
-                    )}
-                  </div>
-                  <span className="title-card-product">{name}</span>
-                  <span className="link-card-product">{description}</span>
-                </div>
-              </div>
-
-              <div>
-                <span className="label">VÍDEO</span>
-                <iframe
-                  className="video-youtube"
-                  src={video}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-
-            <div className="container-info">
-              <span className="title-container-info">
-                <FaInfoCircle style={{ marginRight: 15 }} />
-                INFORMAÇÕES DO PRODUTO
-              </span>
-              <div className="grid-product-inputs">
-                <div>
-                  <span className="label">
-                    Nome do Produto
-                    <span className="label-info">Máx. 28 caracteres</span>
-                  </span>
-                  <input
-                    type="text"
-                    className="input-text"
-                    onChange={(e) => setName(e.target.value.toUpperCase())}
-                    value={name}
-                    maxLength={28}
-                  />
-                </div>
-                <div>
-                  <span className="label">
-                    Descrição do Produto
-                    <span className="label-info">Máx. 30 caracteres</span>
-                  </span>
-                  <input
-                    type="text"
-                    className="input-text"
-                    onChange={(e) =>
-                      setDescription(e.target.value.toUpperCase())
-                    }
-                    value={description}
-                    maxLength={30}
-                  />
-                </div>
-                <div>
-                  <span className="label">Vídeo para o Produto</span>
-                  <input
-                    type="text"
-                    className="input-text"
-                    onChange={(e) => setVideo(e.target.value)}
-                    value={video}
-                  />
-                </div>
-              </div>
-              <div>
-                <span className="label">Descrição para a Imagem</span>
-                <input
-                  type="text"
-                  className="input-text"
-                  onChange={(e) => setImgAlt(e.target.value)}
-                  value={imgAlt}
-                />
-              </div>
-              <div>
-                <span className="label">Slug para o Produto</span>
-                <textarea
-                  type="text"
-                  className="text-area"
-                  onChange={(e) => setSlug(e.target.value)}
-                  value={slug}
-                  rows={5}
-                />
-              </div>
-              <hr className="divider" />
-              <div className="container-buttons">
-                <button
-                  onClick={() => saveProduct()}
-                  type="button"
-                  className="btn-primary"
-                >
-                  <span className="btn-label">
-                    <FaSave />
-                  </span>
-                  <span className="btn-text">Salvar</span>
-                </button>
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="title-page-two" style={{ marginTop: 40 }}>
-              <div className="header-left">
-                <FaRulerHorizontal style={{ marginRight: 20 }} />
-                CADASTRO DE MODELAGENS
-              </div>
-            </div>
-
-            <div className="medida-grid">
-              {!!models.length && (
-                <>
-                  {models.map((mod) => (
-                    <div className="medida-item" key={mod._id}>
-                      <img
-                        className="medida-img"
-                        alt="Palmieri Uniformes"
-                        src={`${urlPhoto}/${mod.image}`}
-                      />
-                      <h4 className="title-medida-product">{mod.title}</h4>
-                      <p className="desc-medida-product">{mod.desc}</p>
-                    </div>
-                  ))}
-                </>
-              )}
-              <div className="medida-item">
-                {model ? (
+        <div className="products-grid-save">
+          <div>
+            <span className="label">CARD</span>
+            <div className="card-product">
+              <div className="container-img-card-category">
+                {photo ? (
                   <>
                     <img
-                      className="medida-img"
-                      alt="Palmieri Uniformes"
-                      src={previewModel}
+                      alt="card category"
+                      src={previewPhoto}
+                      className="card-product-img"
                     />
+                    <button
+                      onClick={() => removePhoto()}
+                      className="remove-photo"
+                    >
+                      <FaTimes />
+                    </button>
                   </>
                 ) : (
-                  <label id="xmlModel">
-                    <input
-                      type="file"
-                      onChange={(event) => setModel(event.target.files[0])}
-                    />
-                    <FaImages style={{ fontSize: 50, marginBottom: 20 }} />
-                    Clique aqui para adicionar uma imagem da modelagem do
-                    produto
-                  </label>
-                )}
-
-                <h4 className="title-medida-product">{titleModel}</h4>
-                <p className="desc-medida-product">{descModel}</p>
-              </div>
-            </div>
-
-            <div className="container-info">
-              <span className="title-container-info">
-                <FaInfoCircle style={{ marginRight: 15 }} />
-                INFORMAÇÕES DA MODELAGEM
-              </span>
-              <div>
-                <span className="label">Título para a Modelagem</span>
-                <input
-                  type="text"
-                  className="input-text"
-                  onChange={(e) => setTitleModel(e.target.value)}
-                  value={titleModel}
-                />
-              </div>
-              <div>
-                <span className="label">Descrição para a Modelagem</span>
-                <textarea
-                  type="text"
-                  className="text-area"
-                  onChange={(e) => setDescModel(e.target.value)}
-                  value={descModel}
-                  rows={5}
-                />
-              </div>
-              <hr className="divider" />
-              <div className="container-buttons">
-                <button
-                  onClick={() => saveModel()}
-                  type="button"
-                  className="btn-primary"
-                >
-                  <span className="btn-label">
-                    <FaSave />
-                  </span>
-                  <span className="btn-text">Salvar Modelagem</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="title-page-two" style={{ marginTop: 40 }}>
-              <div className="header-left">
-                <FaRulerHorizontal style={{ marginRight: 20 }} />
-                CADASTRO DE TABELAS DE TAMANHOS
-              </div>
-            </div>
-
-            <div className="medida-table-grid">
-              {!!tables.length && (
-                <>
-                  {tables.map((tab) => (
-                    <div className="medida-grid-table-item" key={tab._id}>
-                      <img
-                        alt="Palmieri Uniformes"
-                        src={`${urlPhoto}/${tab.image}`}
-                        className="image-table"
+                  <>
+                    <label id="xmlFile">
+                      <input
+                        type="file"
+                        onChange={(event) => setPhoto(event.target.files[0])}
                       />
-                    </div>
-                  ))}
-                </>
-              )}
-              {table ? (
-                <>
-                  <div className="medida-grid-table-item">
-                    <img
-                      alt="Palmieri Uniformes"
-                      src={previewTable}
-                      className="image-table"
-                    />
-                  </div>
-                </>
-              ) : (
-                <div className="medida-grid-table-item">
-                  <label id="xmlModel">
-                    <input
-                      type="file"
-                      onChange={(event) => setTable(event.target.files[0])}
-                    />
-                    <FaImages style={{ fontSize: 50, marginBottom: 20 }} />
-                    Clique aqui para adicionar uma imagem da tabela de tamanhos
-                    do produto
-                  </label>
-                </div>
-              )}
+                      <FaImages style={{ fontSize: 50, marginBottom: 20 }} />
+                      Clique aqui para adicionar uma imagem ao produto
+                    </label>
+                  </>
+                )}
+              </div>
+              <span className="title-card-product">{name}</span>
+              <span className="link-card-product">{description}</span>
             </div>
+          </div>
 
-            <div className="container-buttons-header">
-              <button
-                onClick={() => saveTable()}
-                type="button"
-                className="btn-primary"
-                style={{ marginBottom: 30, width: 300 }}
-              >
-                <span className="btn-label">
-                  <FaSave />
-                </span>
-                <span className="btn-text">Salvar Tabela</span>
-              </button>
-              <button
-                onClick={() => allClear()}
-                type="button"
-                className="btn-green"
-                style={{ marginBottom: 30 }}
-              >
-                <span className="btn-label">
-                  <FaCheck />
-                </span>
-                <span className="btn-text">Concluir Cadastro</span>
-              </button>
+          <div>
+            <span className="label">VÍDEO</span>
+            <iframe
+              className="video-youtube"
+              src={video}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div className="container-info">
+          <span className="title-container-info">
+            <FaInfoCircle style={{ marginRight: 15 }} />
+            INFORMAÇÕES DO PRODUTO
+          </span>
+          <div className="grid-product-inputs">
+            <div>
+              <span className="label">
+                Nome do Produto
+                <span className="label-info">Máx. 28 caracteres</span>
+              </span>
+              <input
+                type="text"
+                className="input-text"
+                onChange={(e) => setName(e.target.value.toUpperCase())}
+                value={name}
+                maxLength={28}
+              />
             </div>
-          </>
-        )}
+            <div>
+              <span className="label">
+                Descrição do Produto
+                <span className="label-info">Máx. 30 caracteres</span>
+              </span>
+              <input
+                type="text"
+                className="input-text"
+                onChange={(e) => setDescription(e.target.value.toUpperCase())}
+                value={description}
+                maxLength={30}
+              />
+            </div>
+            <div>
+              <span className="label">Vídeo para o Produto</span>
+              <input
+                type="text"
+                className="input-text"
+                onChange={(e) => setVideo(e.target.value)}
+                value={video}
+              />
+            </div>
+          </div>
+          <div>
+            <span className="label">Descrição para a Imagem</span>
+            <input
+              type="text"
+              className="input-text"
+              onChange={(e) => setImgAlt(e.target.value)}
+              value={imgAlt}
+            />
+          </div>
+          <div>
+            <span className="label">Slug para o Produto</span>
+            <textarea
+              type="text"
+              className="text-area"
+              onChange={(e) => setSlug(e.target.value)}
+              value={slug}
+              rows={5}
+            />
+          </div>
+          <hr className="divider" />
+          <div className="container-buttons">
+            <button
+              onClick={() => saveProduct()}
+              type="button"
+              className="btn-primary"
+            >
+              <span className="btn-label">
+                <FaSave />
+              </span>
+              <span className="btn-text">Salvar</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <Modal
