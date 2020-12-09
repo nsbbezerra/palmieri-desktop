@@ -11,6 +11,7 @@ import {
   FaImages,
   FaInfoCircle,
   FaSave,
+  FaImage,
 } from "react-icons/fa";
 import Select from "react-select";
 import Modal from "react-modal";
@@ -46,13 +47,24 @@ export default function ListProduct() {
   const [categoryName, setCategoryName] = useState({});
   const [urlImage, setUrlImage] = useState("");
 
+  const [middleImage, setMiddleImage] = useState(null);
+
   const previewPhoto = useMemo(() => {
     return photo ? URL.createObjectURL(photo) : null;
   }, [photo]);
 
+  const previewMiddle = useMemo(() => {
+    return middleImage ? URL.createObjectURL(middleImage) : null;
+  }, [middleImage]);
+
   async function removePhoto() {
     await URL.revokeObjectURL(photo);
     setPhoto(null);
+  }
+
+  async function removeImage() {
+    await URL.revokeObjectURL(middleImage);
+    setMiddleImage(null);
   }
 
   const colorStyles = {
@@ -185,6 +197,42 @@ export default function ListProduct() {
     setVideo(value.video);
     setImgAlt(value.imageDescription);
     setModal(true);
+  }
+
+  async function sendMiddleImage() {
+    if (middleImage === null) {
+      setErroMessage("Escolha uma imagem");
+      setErroStatus("Erro de validação");
+      setTypeModal("erro");
+      setErroModal(true);
+      return false;
+    }
+    setModal(false);
+    setLoadingModal(true);
+    let data = new FormData();
+    data.append("middle", middleImage);
+    await api
+      .post(`/middle/${idProduct}`, data)
+      .then((response) => {
+        setLoadingModal(false);
+        setErroStatus(response.data.message);
+        setTypeModal("success");
+        setErroModal(true);
+      })
+      .catch((error) => {
+        setLoadingModal(false);
+        if (error.message === "Network Error") {
+          setErroMessage("Sem conexão com o servidor");
+          setErroStatus("Erro de conexão");
+          setTypeModal("erro");
+          setErroModal(true);
+          return false;
+        }
+        setErroMessage(error.response.data.message.message);
+        setErroStatus(error.response.data.message.type);
+        setTypeModal("erro");
+        setErroModal(true);
+      });
   }
 
   async function updateProduct() {
@@ -368,7 +416,7 @@ export default function ListProduct() {
       >
         <div className="modal-container">
           <div className="modal-header">
-            <span>Editar Categoria</span>
+            <span>Editar Produto</span>
             <button
               className="btn-close-modal"
               onClick={() => {
@@ -509,6 +557,73 @@ export default function ListProduct() {
                     <FaSave />
                   </span>
                   <span className="btn-text">Salvar</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="container-info">
+              <span className="title-container-info">
+                <FaImage style={{ marginRight: 15 }} />
+                IMAGEM DA DESCRIÇÃO
+              </span>
+
+              <div style={{ height: "15px" }} />
+
+              {middleImage ? (
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div className="medida-grid-table-item">
+                    <img
+                      alt="Palmieri Uniformes"
+                      src={previewMiddle}
+                      className="image-table"
+                    />
+                  </div>
+                  <button
+                    onClick={() => removeImage()}
+                    style={{
+                      padding: "10px",
+                      fontSize: "17px",
+                      fontWeight: "bold",
+                      color: "#fff",
+                      border: "none",
+                      background: "#e9180a",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      marginTop: "10px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <FaTimes style={{ marginRight: "15px" }} /> REMOVER IMAGEM
+                  </button>
+                </div>
+              ) : (
+                <div className="medida-grid-table-item">
+                  <label id="xmlModelMiddle">
+                    <input
+                      type="file"
+                      onChange={(event) =>
+                        setMiddleImage(event.target.files[0])
+                      }
+                    />
+                    <FaImages style={{ fontSize: 50, marginBottom: 20 }} />
+                    Clique aqui para adicionar uma imagem.
+                  </label>
+                </div>
+              )}
+
+              <hr className="divider" />
+              <div className="container-buttons">
+                <button
+                  onClick={() => sendMiddleImage()}
+                  type="button"
+                  className="btn-primary"
+                >
+                  <span className="btn-label">
+                    <FaSave />
+                  </span>
+                  <span className="btn-text">Salvar Imagem</span>
                 </button>
               </div>
             </div>
